@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Molchanov_Lesson_2</string>
+    <string name="something_new">Новое</string>
+    <string name="enter_text">Введите текст</string>
+    <string name="back">Назад</string>
+    <string name="default_text">Дефолтный текст</string>
 </resources>
