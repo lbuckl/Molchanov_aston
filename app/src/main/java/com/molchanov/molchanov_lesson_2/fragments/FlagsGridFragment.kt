@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.molchanov.molchanov_lesson_2.databinding.FragmentFlagsGridBinding
+import com.molchanov.molchanov_lesson_2.replaceFragment
 
 class FlagsGridFragment: Fragment() {
 
@@ -34,11 +35,12 @@ class FlagsGridFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.root.setOnClickListener {
-            requireActivity().supportFragmentManager
-                .beginTransaction()
-                .replace(this.id,FlagsFrameFragment.instance,"flags_frame")
-                .addToBackStack("flags_grid")
-                .commit()
+            replaceFragment(
+                this.id,
+                requireActivity().supportFragmentManager,
+                FlagsFrameFragment.instance,
+                "flags_frame"
+            )
         }
 
         Snackbar.make(binding.root,"Grid", Snackbar.LENGTH_SHORT).show()

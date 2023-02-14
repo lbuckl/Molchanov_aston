@@ -10,8 +10,9 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.molchanov.molchanov_lesson_2.databinding.FragmentFlagsFrameBinding
 import com.molchanov.molchanov_lesson_2.databinding.FragmentFlagsLinearBinding
+import com.molchanov.molchanov_lesson_2.replaceFragment
 
-class FlagsFrameFragment: Fragment() {
+class FlagsFrameFragment : Fragment() {
 
     companion object{
         val instance = FlagsFrameFragment()
@@ -36,11 +37,12 @@ class FlagsFrameFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.root.setOnClickListener {
-            requireActivity().supportFragmentManager
-                .beginTransaction()
-                .replace(this.id,FlagsLinearFragment.instance,"flags_linear")
-                .addToBackStack("flags_frame")
-                .commit()
+            replaceFragment(
+                this.id,
+                requireActivity().supportFragmentManager,
+                FlagsLinearFragment.instance,
+                "flags_linear"
+            )
        }
 
         Snackbar.make(binding.root,"Frame",Snackbar.LENGTH_SHORT).show()

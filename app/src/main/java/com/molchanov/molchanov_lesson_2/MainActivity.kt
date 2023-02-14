@@ -7,6 +7,7 @@ import com.molchanov.molchanov_lesson_2.fragments.FlagsFrameFragment
 
 class MainActivity : AppCompatActivity() {
 
+
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.molchanov.molchanov_lesson_2.databinding.FragmentFlagsLinearBinding
+import com.molchanov.molchanov_lesson_2.replaceFragment
 
 class FlagsLinearFragment: Fragment() {
 
@@ -34,12 +35,15 @@ class FlagsLinearFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.root.setOnClickListener {
-            requireActivity().supportFragmentManager
-                .beginTransaction()
-                .replace(this.id,FlagsGridFragment.instance,"flags_grid")
-                .addToBackStack("flags_linear")
-                .commit()
+            replaceFragment(
+                this.id,
+                requireActivity().supportFragmentManager,
+                FlagsGridFragment.instance,
+                "flags_grid"
+            )
         }
+
+
 
         Snackbar.make(binding.root,"Linear", Snackbar.LENGTH_SHORT).show()
     }
