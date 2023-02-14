@@ -9,61 +9,70 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/flag_australia"
-        android:layout_gravity="top|start"/>
+        android:layout_gravity="top|start"
+        android:contentDescription="@string/flags" />
 
     <ImageView
         android:id="@+id/flag_columbia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/flag_columbia"
-        android:layout_gravity="top|center"/>
+        android:layout_gravity="top|center"
+        android:contentDescription="@string/flags" />
 
     <ImageView
         android:id="@+id/flag_denmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/flag_denmark"
-        android:layout_gravity="top|end"/>
+        android:layout_gravity="top|end"
+        android:contentDescription="@string/flags" />
 
     <ImageView
         android:id="@+id/flag_italy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/flag_italy"
-        android:layout_gravity="center_vertical|start"/>
+        android:layout_gravity="center_vertical|start"
+        android:contentDescription="@string/flags" />
 
     <ImageView
         android:id="@+id/flag_madagaskar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/flag_madagaskar"
-        android:layout_gravity="center_vertical|center"/>
+        android:layout_gravity="center_vertical|center"
+        android:contentDescription="@string/flags" />
 
     <ImageView
         android:id="@+id/flag_poland"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/flag_poland"
-        android:layout_gravity="center_vertical|end"/>
+        android:layout_gravity="center_vertical|end"
+        android:contentDescription="@string/flags" />
 
     <ImageView
         android:id="@+id/flag_russia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/flag_russia"
-        android:layout_gravity="bottom|start"/>
+        android:layout_gravity="bottom|start"
+        android:contentDescription="@string/flags" />
 
     <ImageView
         android:id="@+id/flag_swiss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/flag_swiss"
-        android:layout_gravity="bottom|center"/>
+        android:layout_gravity="bottom|center"
+        android:contentDescription="@string/flags" />
 
     <ImageView
         android:id="@+id/flag_thailand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/flag_thailand"
-        android:layout_gravity="bottom|end"/>
+        android:layout_gravity="bottom|end"
+        android:contentDescription="@string/flags" />
 </FrameLayout>
