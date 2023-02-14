@@ -3,6 +3,7 @@ package com.molchanov.molchanov_lesson_2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.molchanov.molchanov_lesson_2.databinding.ActivityMainBinding
+import com.molchanov.molchanov_lesson_2.fragments.FlagsFrameFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,5 +13,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+
+        setMainFragment()
+    }
+
+    /**
+     * Установка базового фрагмента в контейнер при запуске приложения
+     */
+    private fun setMainFragment(){
+        supportFragmentManager.beginTransaction()
+            .add(binding.container.id,FlagsFrameFragment.instance,"flags_frame")
+            .commit()
     }
 }
