@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import com.molchanov.molchanov_lesson_2.databinding.FragmentFlagsFrameBinding
 import com.molchanov.molchanov_lesson_2.databinding.FragmentFlagsLinearBinding
 
@@ -41,5 +42,7 @@ class FlagsFrameFragment: Fragment() {
                 .addToBackStack("flags_frame")
                 .commit()
        }
+
+        Snackbar.make(binding.root,"Frame",Snackbar.LENGTH_SHORT).show()
     }
 }
