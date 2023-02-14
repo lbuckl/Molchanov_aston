@@ -1,28 +1,28 @@
 package com.molchanov.molchanov_lesson_2.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.molchanov.molchanov_lesson_2.databinding.FragmentFlagsFrameBinding
-import com.molchanov.molchanov_lesson_2.databinding.FragmentFlagsLinearBinding
 import com.molchanov.molchanov_lesson_2.replaceFragment
 
+/**
+ * Фрагмент для отображения в FrameLayout
+ */
 class FlagsFrameFragment : Fragment() {
 
-    companion object{
+    companion object {
         val instance = FlagsFrameFragment()
     }
 
     private var _binding: FragmentFlagsFrameBinding? = null
     private val binding: FragmentFlagsFrameBinding
-    get(){
-        return _binding!!
-    }
+        get() {
+            return _binding!!
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,8 +43,8 @@ class FlagsFrameFragment : Fragment() {
                 FlagsLinearFragment.instance,
                 "flags_linear"
             )
-       }
+        }
 
-        Snackbar.make(binding.root,"Frame",Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(binding.root, "Frame", Snackbar.LENGTH_SHORT).show()
     }
 }

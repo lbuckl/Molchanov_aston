@@ -13,20 +13,19 @@ fun replaceFragment(
     fragmentManager: FragmentManager,
     fragment: Fragment,
     tag: String
-    ){
+) {
 
     //Поиск старого фрагмента в менеджере по тегу
     val oldFragment = fragmentManager.findFragmentByTag(tag)
 
-    if (oldFragment == null){
+    if (oldFragment == null) {
         fragmentManager.beginTransaction()
-            .replace(fragmentRepId,fragment,tag)
+            .replace(fragmentRepId, fragment, tag)
             .addToBackStack(tag)
             .commit()
-    }
-    else {
+    } else {
         fragmentManager.beginTransaction()
-            .replace(fragmentRepId,oldFragment,tag)
+            .replace(fragmentRepId, oldFragment, tag)
             .commit()
     }
 }
