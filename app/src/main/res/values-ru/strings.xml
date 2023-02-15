@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Aston интенсив</string>
+    <string name="tv_aston_card_primary">ИТ-решения для развития бизнеса</string>
+    <string name="tv_aston_card_secondary">Разработка програмнного обеспечения</string>
 </resources>

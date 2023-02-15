@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Aston intensive</string>
+    <string name="tv_aston_card_primary">IT solutions for business development</string>
+    <string name="tv_aston_card_secondary">Software development</string>
+
+    <!-- Content description -->
+    <string name="iv_welcome" translatable="false">iv_welcome</string>
+    <string name="aston_icon" translatable="false">aston_icon</string>
+
 </resources>

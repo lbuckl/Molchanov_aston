@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- General styles -->
+    <style name="PrimaryTextStile" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SecondaryTextStile" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+    <!-- _________________________________________________________________ -->
+
+
+    <!-- Custom styles -->
+    <style name="AstonCardPrimaryTextStile" parent="PrimaryTextStile">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="AstonCardSecondaryTextStile" parent="SecondaryTextStile">
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>

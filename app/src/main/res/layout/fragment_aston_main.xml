@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_aston_welcome"
+        android:contentDescription="@string/iv_welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -13,4 +15,57 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pic_aston_welcome"
         android:adjustViewBounds="true"/>
+
+    <ImageView
+        android:id="@+id/iv_aston_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/aston_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_first_part"
+        app:srcCompat="@drawable/ic_aston" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_aston_cv_primary"
+        style="@style/AstonCardPrimaryTextStile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="4dp"
+        android:layout_toEndOf="@id/iv_aston_icon"
+        android:text="@string/tv_aston_card_primary"
+        app:layout_constraintStart_toEndOf="@+id/iv_aston_icon"
+        app:layout_constraintTop_toTopOf="@+id/guideline_first_part" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_aston_cv_secondary"
+        style="@style/AstonCardSecondaryTextStile"
+        android:layout_marginStart="@dimen/tv_aston_card_start_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_aston_cv_primary"
+        android:layout_toEndOf="@id/iv_aston_icon"
+        android:text="@string/tv_aston_card_secondary"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_aston_icon"
+        app:layout_constraintStart_toEndOf="@+id/iv_aston_icon"
+        app:layout_constraintTop_toBottomOf="@+id/tv_aston_cv_primary" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_first_part"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_second_part"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.76" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
