@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,15 +7,14 @@
 
     <ImageView
         android:id="@+id/iv_aston_welcome"
-        android:contentDescription="@string/iv_welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/iv_welcome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pic_aston_welcome"
-        android:adjustViewBounds="true"
-        />
+        app:srcCompat="@drawable/pic_aston_welcome" />
 
     <ImageView
         android:id="@+id/iv_aston_icon"
@@ -42,9 +40,9 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_aston_cv_secondary"
         style="@style/AstonCardSecondaryTextStile"
-        android:layout_marginStart="@dimen/tv_aston_card_start_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tv_aston_card_start_margin"
         android:text="@string/tv_aston_card_secondary"
         app:layout_constraintBottom_toBottomOf="@+id/iv_aston_icon"
         app:layout_constraintStart_toEndOf="@+id/iv_aston_icon"
@@ -58,7 +56,7 @@
         android:layout_marginStart="4dp"
         android:layout_toEndOf="@id/iv_aston_icon"
         android:text="@string/about_us"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_margin_left_barrier"
         app:layout_constraintTop_toBottomOf="@+id/aston_card_barrier" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -68,15 +66,105 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:text="@string/about_us_description"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_margin_left_barrier"
         app:layout_constraintTop_toBottomOf="@+id/tv_aston_about_primary" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_second_part"
-        android:layout_width="0dp"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_offices"
+        style="@style/AstonCardPrimaryTextStile"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.76" />
+        android:layout_toEndOf="@id/iv_aston_icon"
+        android:text="@string/offices"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aston_about_barrier" />
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/cg_offices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_margin_left_barrier"
+        app:layout_constraintTop_toBottomOf="@+id/tv_offices">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_moscow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/moscow" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_minsk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minsk" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_spb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/saint_petersburg" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_rnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rostov_on_don" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_kazan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kazan" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_almaty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/almaty" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_gomel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gomel" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+    <Button
+        android:id="@+id/button_contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contacts"
+        app:layout_constraintBottom_toBottomOf="@+id/button_jobs"
+        app:layout_constraintEnd_toStartOf="@+id/button_jobs"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_jobs" />
+
+    <Button
+        android:id="@+id/button_jobs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jobs"
+        app:layout_constraintBottom_toBottomOf="@+id/button_gallery"
+        app:layout_constraintEnd_toStartOf="@+id/button_gallery"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_contacts"
+        app:layout_constraintTop_toTopOf="@+id/button_gallery" />
+
+    <Button
+        android:id="@+id/button_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gallery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_jobs"
+        app:layout_constraintTop_toBottomOf="@+id/cg_offices" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/iv_aston_welcome_barrier"
@@ -102,6 +190,19 @@
         app:constraint_referenced_ids="tv_aston_about_secondary"
         tools:layout_editor_absoluteY="731dp" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_margin_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02"/>
 
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/gl_margin_left_barrier"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="gl_margin_left" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

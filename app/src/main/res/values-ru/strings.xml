@@ -5,4 +5,12 @@
     <string name="tv_aston_card_secondary">Разработка програмнного обеспечения</string>
     <string name="about_us">О нас:</string>
     <string name="about_us_description">Эстон - компания по разработке ПО с полным циклом услуг. Уже 15 лет мы помогаем заказчикам повсему миру трансфорировать бизнес, создавая эффективные мобильные и десктопные решения</string>
+    <string name="offices">Оффисы</string>
+    <string name="moscow">Москва</string>
+    <string name="saint_petersburg">Санкт-Петербург</string>
+    <string name="rostov_on_don">Ростов-на-Дону</string>
+    <string name="kazan">Казань</string>
+    <string name="almaty">Алматы</string>
+    <string name="gomel">Гомель</string>
+    <string name="minsk">Минск</string>
 </resources>
