@@ -14,13 +14,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        setMainFragment()
+        setMainFragment(savedInstanceState)
     }
 
     /**
      * Установка базового фрагмента в контейнер при запуске приложения
      */
-    private fun setMainFragment() {
+    private fun setMainFragment(savedInstanceState: Bundle?) {
+        if (savedInstanceState == null)
         supportFragmentManager.beginTransaction()
             .add(binding.container.id, AstonMainFragment.instance, "flags_frame")
             .commit()

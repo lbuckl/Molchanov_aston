@@ -66,19 +66,23 @@ class AstonMainFragment : Fragment() {
         with(binding) {
 
             btnContacts.setOnClickListener {
-                groupBottomInfo.visibility = View.GONE
-                progressCircular.visibility = View.VISIBLE
+                loading()
             }
 
             btnGallery.setOnClickListener {
-                groupBottomInfo.visibility = View.GONE
-                progressCircular.visibility = View.VISIBLE
+                loading()
             }
 
             btnJobs.setOnClickListener {
-                groupBottomInfo.visibility = View.GONE
-                progressCircular.visibility = View.VISIBLE
+                loading()
             }
+        }
+    }
+
+    private fun loading(){
+        with(binding){
+            groupBottomInfo.visibility = View.GONE
+            progressCircular.visibility = View.VISIBLE
         }
     }
 }
