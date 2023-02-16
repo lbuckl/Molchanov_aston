@@ -145,51 +145,53 @@
 
 
     <Button
-        android:id="@+id/button_contacts"
+        android:id="@+id/btn_contacts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/contacts"
-        app:layout_constraintBottom_toBottomOf="@+id/button_jobs"
-        app:layout_constraintEnd_toStartOf="@+id/button_jobs"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_jobs"
+        app:layout_constraintEnd_toStartOf="@+id/btn_jobs"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button_jobs" />
+        app:layout_constraintTop_toTopOf="@+id/btn_jobs" />
 
     <Button
-        android:id="@+id/button_jobs"
+        android:id="@+id/btn_jobs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/jobs"
-        app:layout_constraintBottom_toBottomOf="@+id/button_gallery"
-        app:layout_constraintEnd_toStartOf="@+id/button_gallery"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_gallery"
+        app:layout_constraintEnd_toStartOf="@+id/btn_gallery"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_contacts"
-        app:layout_constraintTop_toTopOf="@+id/button_gallery" />
+        app:layout_constraintStart_toEndOf="@+id/btn_contacts"
+        app:layout_constraintTop_toTopOf="@+id/btn_gallery" />
 
     <Button
-        android:id="@+id/button_gallery"
+        android:id="@+id/btn_gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/gallery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_jobs"
+        app:layout_constraintStart_toEndOf="@+id/btn_jobs"
         app:layout_constraintTop_toBottomOf="@+id/cg_offices" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_bottom_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="tv_offices,cg_offices,button_gallery,button_contacts,button_jobs">
+        app:constraint_referenced_ids="tv_offices,cg_offices,btn_gallery,btn_contacts,btn_jobs">
     </androidx.constraintlayout.widget.Group>
 
     <ProgressBar
+        android:id="@+id/progress_circular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_offices" />
+        app:layout_constraintTop_toBottomOf="@+id/aston_about_barrier" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/iv_aston_welcome_barrier"

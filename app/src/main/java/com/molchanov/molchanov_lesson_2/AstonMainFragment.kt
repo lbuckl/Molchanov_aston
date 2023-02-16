@@ -25,4 +25,30 @@ class AstonMainFragment: Fragment() {
         _binding = FragmentAstonMainBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initButtons()
+    }
+
+    private fun initButtons(){
+        with(binding){
+
+            btnContacts.setOnClickListener {
+                groupBottomInfo.visibility = View.GONE
+                progressCircular.visibility = View.VISIBLE
+            }
+
+            btnGallery.setOnClickListener {
+                groupBottomInfo.visibility = View.GONE
+                progressCircular.visibility = View.VISIBLE
+            }
+
+            btnJobs.setOnClickListener {
+                groupBottomInfo.visibility = View.GONE
+                progressCircular.visibility = View.VISIBLE
+            }
+        }
+    }
 }
