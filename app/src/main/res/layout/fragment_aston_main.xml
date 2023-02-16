@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -176,6 +175,21 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_jobs"
         app:layout_constraintTop_toBottomOf="@+id/cg_offices" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_bottom_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_offices,cg_offices,button_gallery,button_contacts,button_jobs">
+    </androidx.constraintlayout.widget.Group>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_offices" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/iv_aston_welcome_barrier"
