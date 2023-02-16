@@ -20,9 +20,9 @@ class MainActivity : AppCompatActivity() {
     /**
      * Установка базового фрагмента в контейнер при запуске приложения
      */
-    private fun setMainFragment(){
+    private fun setMainFragment() {
         supportFragmentManager.beginTransaction()
-            .add(binding.container.id,AstonMainFragment.instance,"flags_frame")
+            .add(binding.container.id, AstonMainFragment.instance, "flags_frame")
             .commit()
     }
 }
