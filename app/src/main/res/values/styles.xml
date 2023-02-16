@@ -12,22 +12,32 @@
     <!-- _________________________________________________________________ -->
 
 
-    <!-- Custom styles -->
+    <!-- Стили основного фрагмента -->
     <style name="AstonCardPrimaryTextStile" parent="PrimaryTextStile">
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="AstonCardSecondaryTextStile" parent="SecondaryTextStile">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:typeface">monospace</item>
     </style>
 
     <style name="AstonAboutPrimaryTextStile" parent="PrimaryTextStile">
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="AstonAboutSecondaryTextStile" parent="SecondaryTextStile">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
     </style>
+
+    <!-- Стиль для чипов основного фрагмента. -->
+    <style name="MenuChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="chipCornerRadius">10dp</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <!-- _________________________________________________________________ -->
 
 </resources>

@@ -13,4 +13,7 @@
     <string name="almaty">Алматы</string>
     <string name="gomel">Гомель</string>
     <string name="minsk">Минск</string>
+    <string name="contacts">Контакты</string>
+    <string name="jobs">Вакансии</string>
+    <string name="gallery">Галерея</string>
 </resources>

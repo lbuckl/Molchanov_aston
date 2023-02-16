@@ -16,5 +16,8 @@
     <string name="almaty">Almaty</string>
     <string name="gomel">Gomel</string>
     <string name="minsk">Minsk</string>
+    <string name="contacts">Contacts</string>
+    <string name="jobs">Jobs</string>
+    <string name="gallery">Gallery</string>
 
 </resources>
