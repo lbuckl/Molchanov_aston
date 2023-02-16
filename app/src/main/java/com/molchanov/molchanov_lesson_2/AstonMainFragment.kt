@@ -1,14 +1,12 @@
 package com.molchanov.molchanov_lesson_2
 
-import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.molchanov.molchanov_lesson_2.databinding.FragmentAstonMainBinding
-import java.util.Locale
+import java.util.*
 
 /**
  * Фрагмент отображения головной информации о компании Aston
