@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/iv_aston_welcome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:contentDescription="@string/iv_welcome"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="fitXY"
+        app:layout_constraintHeight_percent="0.36"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.36"
         app:srcCompat="@drawable/pic_aston_welcome" />
 
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/iv_aston_welcome_barrier"
+        android:id="@+id/iv_aston_welcome_bottom_barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="iv_aston_welcome"
-        />
+        tools:layout_editor_absoluteY="123dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/iv_aston_welcome_right_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="iv_aston_welcome"
+        tools:layout_editor_absoluteX="227dp" />
 
     <ImageView
         android:id="@+id/iv_aston_icon"
@@ -30,8 +40,8 @@
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:contentDescription="@string/aston_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iv_aston_welcome_barrier"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_aston_welcome"
+        app:layout_constraintStart_toEndOf="@+id/iv_aston_welcome_right_barrier"
         app:srcCompat="@drawable/ic_aston" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -42,9 +52,9 @@
         android:layout_marginStart="@dimen/tv_aston_card_start_margin"
         android:layout_toEndOf="@id/iv_aston_icon"
         android:text="@string/tv_aston_card_primary"
-        app:layout_constraintStart_toEndOf="@+id/iv_aston_icon"
         app:layout_constraintEnd_toEndOf="@+id/gl_margin_right_barrier"
-        app:layout_constraintTop_toTopOf="@+id/iv_aston_welcome_barrier" />
+        app:layout_constraintStart_toEndOf="@+id/iv_aston_icon"
+        app:layout_constraintTop_toTopOf="@+id/iv_aston_icon" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_aston_cv_secondary"
@@ -57,17 +67,16 @@
         app:layout_constraintStart_toEndOf="@+id/iv_aston_icon"
         app:layout_constraintTop_toBottomOf="@+id/tv_aston_card_primary" />
 
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_aston_about_primary"
         style="@style/AstonAboutPrimaryTextStile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_text_default"
-        android:layout_marginStart="@dimen/margin_text_default"
         android:layout_toEndOf="@id/iv_aston_icon"
         android:text="@string/about_us"
-        app:layout_constraintStart_toStartOf="@+id/gl_margin_left_barrier"
-        app:layout_constraintTop_toBottomOf="@+id/aston_card_barrier" />
+        app:layout_constraintLeft_toRightOf="@+id/gl_margin_left_barrier"
+        app:layout_constraintTop_toTopOf="@+id/iv_aston_welcome_bottom_barrier" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_aston_about_secondary"
@@ -75,9 +84,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/about_us_description"
+        app:layout_constraintEnd_toEndOf="@+id/iv_aston_welcome_right_barrier"
         app:layout_constraintStart_toStartOf="@+id/gl_margin_left_barrier"
-        app:layout_constraintEnd_toEndOf="@+id/gl_margin_right_barrier"
         app:layout_constraintTop_toBottomOf="@+id/tv_aston_about_primary" />
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_offices"
@@ -85,19 +95,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/iv_aston_icon"
-        android:layout_marginTop="@dimen/tv_office_margin_top"
         android:text="@string/offices"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aston_about_barrier" />
-
+        app:layout_constraintLeft_toRightOf="@+id/iv_aston_welcome_right_barrier"
+        app:layout_constraintRight_toLeftOf="@+id/gl_margin_right_barrier"
+        app:layout_constraintTop_toBottomOf="@+id/iv_aston_welcome_bottom_barrier" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/cg_offices"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/gl_margin_right_barrier"
-        app:layout_constraintStart_toStartOf="@+id/gl_margin_left"
+        android:layout_marginStart="4dp"
+        app:layout_constraintLeft_toRightOf="@+id/iv_aston_welcome_right_barrier"
+        app:layout_constraintRight_toLeftOf="@+id/gl_margin_right_barrier"
         app:layout_constraintTop_toBottomOf="@+id/tv_offices">
 
         <com.google.android.material.chip.Chip
@@ -151,7 +160,6 @@
 
     </com.google.android.material.chip.ChipGroup>
 
-
     <Button
         android:id="@+id/btn_contacts"
         android:layout_width="wrap_content"
@@ -160,7 +168,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn_jobs"
         app:layout_constraintEnd_toStartOf="@+id/btn_jobs"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/iv_aston_welcome_right_barrier"
         app:layout_constraintTop_toTopOf="@+id/btn_jobs" />
 
     <Button
@@ -179,6 +187,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/gallery"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_jobs"
@@ -188,8 +197,7 @@
         android:id="@+id/group_bottom_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="tv_offices,cg_offices,btn_gallery,btn_contacts,btn_jobs">
-    </androidx.constraintlayout.widget.Group>
+        app:constraint_referenced_ids="tv_offices,cg_offices,btn_gallery,btn_contacts,btn_jobs"/>
 
     <ProgressBar
         android:id="@+id/progress_circular"
@@ -197,34 +205,16 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aston_about_barrier" />
-
-
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/aston_card_barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="iv_aston_icon,tv_aston_cv_secondary"
-        />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/aston_about_barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tv_aston_about_secondary"
-        />
+        app:layout_constraintEnd_toEndOf="@+id/gl_margin_right_barrier"
+        app:layout_constraintStart_toEndOf="@+id/iv_aston_welcome_right_barrier"
+        app:layout_constraintTop_toBottomOf="@+id/iv_aston_welcome_bottom_barrier" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_margin_left"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.02"/>
+        app:layout_constraintGuide_percent="0.01" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/gl_margin_left_barrier"
@@ -232,14 +222,14 @@
         android:layout_height="wrap_content"
         app:barrierDirection="right"
         app:constraint_referenced_ids="gl_margin_left"
-        />
+        tools:layout_editor_absoluteX="7dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_margin_right"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.98"/>
+        app:layout_constraintGuide_percent="0.99" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/gl_margin_right_barrier"
@@ -247,7 +237,6 @@
         android:layout_height="wrap_content"
         app:barrierDirection="left"
         app:constraint_referenced_ids="gl_margin_right"
-        />
-
+        tools:layout_editor_absoluteX="724dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
