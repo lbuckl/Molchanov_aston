@@ -4,22 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.molchanov.molchanov_lesson_2.databinding.FragmentAstonMainBinding
 import java.util.*
 
 /**
  * Фрагмент отображения головной информации о компании Aston
  */
-class AstonMainFragment : Fragment() {
+class AstonMainFragment() : BaseFragment() {
 
     companion object {
         val instance = AstonMainFragment()
     }
 
-    private var _binding: FragmentAstonMainBinding? = null
-    private val binding: FragmentAstonMainBinding
-        get() = _binding!!
+    override val binding: FragmentAstonMainBinding
+        get() = _binding!! as FragmentAstonMainBinding
+
 
     private val location = Locale.getDefault()
 

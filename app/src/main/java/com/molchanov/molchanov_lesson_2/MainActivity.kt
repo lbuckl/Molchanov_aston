@@ -1,30 +1,21 @@
 package com.molchanov.molchanov_lesson_2
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.molchanov.molchanov_lesson_2.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-
-    lateinit var binding: ActivityMainBinding
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         binding = ActivityMainBinding.inflate(layoutInflater)
-        
-        super.onCreate(savedInstanceState)
-        
-        setContentView(binding.root)
 
-        setMainFragment(savedInstanceState)
+        super.onCreate(savedInstanceState)
+
+        setContentView(binding.root)
     }
 
-    
-    private fun setMainFragment(savedInstanceState: Bundle?) {
-    
-        if (savedInstanceState == null)
+    override fun addMainFragment() {
         supportFragmentManager.beginTransaction()
-            .add(binding.container.id, AstonMainFragment.instance, "flags_frame")
+            .add(binding.container.id, AstonMainFragment.instance)
             .commit()
     }
 }
