@@ -14,7 +14,7 @@
         app:layout_constraintHeight_percent="0.36"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.36"
+        app:layout_constraintWidth_percent="0.43"
         app:srcCompat="@drawable/pic_aston_welcome" />
 
     <androidx.constraintlayout.widget.Barrier
@@ -59,12 +59,13 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_aston_cv_secondary"
         style="@style/AstonCardSecondaryTextStile"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/tv_aston_card_start_margin"
         android:text="@string/tv_aston_card_secondary"
         app:layout_constraintBottom_toBottomOf="@+id/iv_aston_icon"
         app:layout_constraintStart_toEndOf="@+id/iv_aston_icon"
+        app:layout_constraintEnd_toStartOf="@+id/gl_margin_right_barrier"
         app:layout_constraintTop_toBottomOf="@+id/tv_aston_card_primary" />
 
 
@@ -84,6 +85,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/about_us_description"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/iv_aston_welcome_right_barrier"
         app:layout_constraintStart_toStartOf="@+id/gl_margin_left_barrier"
         app:layout_constraintTop_toBottomOf="@+id/tv_aston_about_primary" />
