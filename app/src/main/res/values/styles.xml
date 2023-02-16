@@ -8,7 +8,6 @@
 
     <style name="SecondaryTextStile" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/text_color_black</item>
-        <item name="android:typeface">monospace</item>
     </style>
     <!-- _________________________________________________________________ -->
 
@@ -20,5 +19,15 @@
 
     <style name="AstonCardSecondaryTextStile" parent="SecondaryTextStile">
         <item name="android:textSize">18sp</item>
+        <item name="android:typeface">monospace</item>
     </style>
+
+    <style name="AstonAboutPrimaryTextStile" parent="PrimaryTextStile">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="AstonAboutSecondaryTextStile" parent="SecondaryTextStile">
+        <item name="android:textSize">20sp</item>
+    </style>
+
 </resources>
