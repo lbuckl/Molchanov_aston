@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/flags_grid"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="3"
+    android:rowCount="3">
+
+    <ImageView
+        android:id="@+id/flag_australia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/flag_australia"
+        android:contentDescription="@string/flags" />
+
+    <ImageView
+        android:id="@+id/flag_columbia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/flag_columbia"
+        android:layout_columnWeight="1"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/flags" />
+
+    <ImageView
+        android:id="@+id/flag_denmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/flag_denmark"
+
+        android:contentDescription="@string/flags" />
+
+    <ImageView
+        android:id="@+id/flag_italy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/flag_italy"
+        android:layout_rowWeight="1"
+        android:layout_gravity="bottom"
+        android:contentDescription="@string/flags" />
+
+    <ImageView
+        android:id="@+id/flag_madagaskar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/flag_madagaskar"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="center_horizontal|bottom"
+        android:contentDescription="@string/flags" />
+
+    <ImageView
+        android:id="@+id/flag_poland"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/flag_poland"
+        android:layout_rowWeight="1"
+        android:layout_gravity="bottom"
+        android:contentDescription="@string/flags" />
+
+    <ImageView
+        android:id="@+id/flag_russia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/flag_russia"
+        android:layout_rowWeight="1"
+        android:layout_gravity="bottom"
+        android:contentDescription="@string/flags" />
+
+    <ImageView
+        android:id="@+id/flag_swiss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/flag_swiss"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="center_horizontal|bottom"
+        android:contentDescription="@string/flags" />
+
+    <ImageView
+        android:id="@+id/flag_thailand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/flag_thailand"
+        android:layout_rowWeight="1"
+        android:layout_gravity="end|bottom"
+        android:contentDescription="@string/flags" />
+
+</GridLayout>
