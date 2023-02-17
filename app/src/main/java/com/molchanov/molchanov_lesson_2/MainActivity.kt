@@ -11,16 +11,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+        
         super.onCreate(savedInstanceState)
+        
         setContentView(binding.root)
 
         setMainFragment(savedInstanceState)
     }
 
-    /**
-     * Установка базового фрагмента в контейнер при запуске приложения
-     */
+    
     private fun setMainFragment(savedInstanceState: Bundle?) {
+    
         if (savedInstanceState == null)
         supportFragmentManager.beginTransaction()
             .add(binding.container.id, AstonMainFragment.instance, "flags_frame")
