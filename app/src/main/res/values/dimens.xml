@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tv_aston_card_start_margin">4dp</dimen>
+    <dimen name="margin_text_default">2dp</dimen>
+    <dimen name="tv_office_margin_top">4dp</dimen>
+</resources>
