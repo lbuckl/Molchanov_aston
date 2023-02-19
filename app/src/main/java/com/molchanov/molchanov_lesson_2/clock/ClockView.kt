@@ -44,6 +44,10 @@ class ClockView @JvmOverloads constructor(
     private var arrowMinuteColor by Delegates.notNull<Int>()
     private var arrowSecondColor by Delegates.notNull<Int>()
 
+    private var hourValue = 0
+    private var minuteValue = 0
+    private var secondValue = 0
+
 
 
     private val linesArray: FloatArray by lazy {
@@ -54,33 +58,7 @@ class ClockView @JvmOverloads constructor(
         )
     }
 
-    var hour: Int = 0
-        set(value: Int) {
-            if (checkTimeInput(NAME_HOUR, value) == -1) {
-                catchTimeInputException(NAME_HOUR, value)
-            } else {
-                field = value
-            }
-        }
-
-    var minute: Int = 3
-        set(value: Int) {
-            if (checkTimeInput(NAME_MINUTE, value) == -1) {
-                catchTimeInputException(NAME_MINUTE, value)
-            } else {
-                field = value
-            }
-        }
-
-    var second: Int = 6
-        set(value: Int) {
-            if (checkTimeInput(NAME_SECOND, value) == -1) {
-                catchTimeInputException(NAME_SECOND, value)
-            } else {
-                field = value
-                invalidate()
-            }
-        }
+    private val paintBrash = Paint(Paint.ANTI_ALIAS_FLAG)
 
     init {
         if (attrs == null) initDefaultAttributes()
@@ -105,8 +83,15 @@ class ClockView @JvmOverloads constructor(
         attrArray.recycle()
     }
 
+    private fun initDefaultAttributes() {
+        arrowHourColor = ARROW_HOUR_COLOR
+        arrowMinuteColor = ARROW_MINUTE_COLOR
+        arrowSecondColor = ARROW_SECOND_COLOR
+    }
+
+    //region функции взаимодействия с элементами часов
     /**
-     * Функция
+     * Функция установки цвета для стрелок
      */
     fun setNewColorsForArrows(hourColor: Int, minuteColor: Int, secondColor: Int){
         arrowHourColor = hourColor
@@ -114,14 +99,27 @@ class ClockView @JvmOverloads constructor(
         arrowSecondColor = secondColor
     }
 
-    private fun initDefaultAttributes() {
-        arrowHourColor = ARROW_HOUR_COLOR
-        arrowMinuteColor = ARROW_MINUTE_COLOR
-        arrowSecondColor = ARROW_SECOND_COLOR
+    /**
+     * Функция для задания времени
+     */
+    fun setTime(hour: Int, minute: Int, second: Int){
+
+        try {
+            checkTimeInput(NAME_HOUR, hour)
+            checkTimeInput(NAME_MINUTE, minute)
+            checkTimeInput(NAME_SECOND, second)
+        }catch (e: IndexOutOfBoundsException){
+            e.printStackTrace()
+        }
+
+        hourValue = hour
+        minuteValue = minute
+        secondValue = second
+
+        invalidate()
+
     }
-
-
-    private val paintBrash = Paint(Paint.ANTI_ALIAS_FLAG)
+    //endregion
 
     //Функция задания размеров
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -264,36 +262,29 @@ class ClockView @JvmOverloads constructor(
         )
     }
 
+    /**
+     * Функция проверяет корректность введённых параметров времени
+     */
+    @Throws(IndexOutOfBoundsException::class)
     private fun checkTimeInput(timeName: String, newValue: Int): Int {
         when (timeName) {
             NAME_HOUR -> {
-                return if (newValue in 0..11) {
-                    newValue
-                } else {
-                    ERROR_TIME_VALUE
-                }
+                    if (newValue in 0..11) {
+                        return newValue
+                    } else {
+                        throw java.lang.IndexOutOfBoundsException(
+                            "Class ${this::class.simpleName}: input parameter \"$timeName\" must be in 0..11. Your parameter: $newValue"
+                        )
+                    }
             }
             else -> {
-                return if (newValue in 0..59) {
-                    newValue
-                } else {
-                    ERROR_TIME_VALUE
-                }
-            }
-        }
-    }
-
-    private fun catchTimeInputException(timeName: String, newValue: Int) {
-        when (timeName) {
-            NAME_HOUR -> {
-                throw java.lang.IndexOutOfBoundsException(
-                    "$timeName input parameter must be in 0..11. Your parameter: $newValue"
-                )
-            }
-            else -> {
-                throw java.lang.IndexOutOfBoundsException(
-                    "$timeName input parameter must be in 0..59. Your parameter: $newValue"
-                )
+                    if (newValue in 0..59) {
+                        return newValue
+                    } else {
+                        throw java.lang.IndexOutOfBoundsException(
+                            "Class ${this::class.simpleName}: input parameter \"$timeName\" must be in 0..59. Your parameter: $newValue"
+                        )
+                    }
             }
         }
     }
@@ -322,5 +313,4 @@ class ClockView @JvmOverloads constructor(
 
         return res.toFloatArray()
     }
-
 }
