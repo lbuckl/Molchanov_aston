@@ -48,8 +48,6 @@ class ClockView @JvmOverloads constructor(
     private var minuteValue = 0
     private var secondValue = 0
 
-
-
     private val linesArray: FloatArray by lazy {
         getCoordinatesFromDegree(
             (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
@@ -57,6 +55,26 @@ class ClockView @JvmOverloads constructor(
             floatArrayOf(0F, 30F, 60F, 90F, 120F, 150F, 180F, 210F, 240F, 270F, 300F, 330F)
         )
     }
+
+    private var timeDegrees = getDegreeFromTimeValue()
+
+    private var hourArrayCoordinates = getCoordinatesFromDegree(
+        (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+        hourArrowSizePixels,
+        floatArrayOf(timeDegrees[0])
+    )
+
+    private var minuteArrayCoordinates = getCoordinatesFromDegree(
+        (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+        minuteArrowSizePixels,
+        floatArrayOf(timeDegrees[1])
+    )
+
+    private var secondArrayCoordinates = getCoordinatesFromDegree(
+        (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+        secondArrowSizePixels,
+        floatArrayOf(timeDegrees[2])
+    )
 
     private val paintBrash = Paint(Paint.ANTI_ALIAS_FLAG)
 
@@ -117,8 +135,28 @@ class ClockView @JvmOverloads constructor(
         minuteValue = minute
         secondValue = second
 
-        invalidate()
+        timeDegrees = getDegreeFromTimeValue()
 
+        hourArrayCoordinates = getCoordinatesFromDegree(
+            (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+            hourArrowSizePixels,
+            floatArrayOf(timeDegrees[0])
+        )
+
+
+        minuteArrayCoordinates = getCoordinatesFromDegree(
+            (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+            minuteArrowSizePixels,
+            floatArrayOf(timeDegrees[1])
+        )
+
+        secondArrayCoordinates = getCoordinatesFromDegree(
+            (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+            secondArrowSizePixels,
+            floatArrayOf(timeDegrees[2])
+        )
+
+        invalidate()
     }
     //endregion
 
@@ -210,9 +248,6 @@ class ClockView @JvmOverloads constructor(
      */
     @Throws(ArrayIndexOutOfBoundsException::class)
     private fun paintTimeArrows(canvas: Canvas?){
-
-        val timeDegrees = getDegreeFromTimeValue()
-
         //отрисовывка часовой стрелки
         paintBrash.let {
             it.color = arrowHourColor
@@ -221,11 +256,7 @@ class ClockView @JvmOverloads constructor(
         }
 
         canvas?.drawLines(
-            getCoordinatesFromDegree(
-                (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
-                hourArrowSizePixels,
-                floatArrayOf(timeDegrees[0])
-            ),
+            hourArrayCoordinates,
             paintBrash
         )
 
@@ -236,11 +267,7 @@ class ClockView @JvmOverloads constructor(
         }
 
         canvas?.drawLines(
-            getCoordinatesFromDegree(
-                (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
-                minuteArrowSizePixels,
-                floatArrayOf(timeDegrees[1])
-            ),
+            minuteArrayCoordinates,
             paintBrash
         )
 
@@ -251,11 +278,7 @@ class ClockView @JvmOverloads constructor(
         }
 
         canvas?.drawLines(
-            getCoordinatesFromDegree(
-                (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
-                secondArrowSizePixels,
-                floatArrayOf(timeDegrees[2])
-            ),
+            secondArrayCoordinates,
             paintBrash
         )
     }
