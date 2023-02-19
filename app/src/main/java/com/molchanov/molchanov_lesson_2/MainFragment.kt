@@ -1,6 +1,5 @@
 package com.molchanov.molchanov_lesson_2
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,5 +25,12 @@ class MainFragment : BaseFragment() {
         _binding = FragmentMainBinding.inflate(layoutInflater,container,false)
 
         return binding.root
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.watch.setTime(11, 50, 0)
     }
 }

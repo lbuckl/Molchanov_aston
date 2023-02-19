@@ -110,6 +110,7 @@ class ClockView @JvmOverloads constructor(
             checkTimeInput(NAME_SECOND, second)
         }catch (e: IndexOutOfBoundsException){
             e.printStackTrace()
+            //TODO Message
         }
 
         hourValue = hour
@@ -151,11 +152,13 @@ class ClockView @JvmOverloads constructor(
 
         paintWatchFace(canvas)
 
-        paintHourArrow(canvas)
+        try {
+            paintTimeArrows(canvas)
+        }catch (e: ArrayIndexOutOfBoundsException){
+            e.printStackTrace()
+            //TODO Message
+        }
 
-        paintMinuteArrow(canvas)
-
-        paintSecondArrow(canvas)
     }
 
     /**
@@ -203,9 +206,14 @@ class ClockView @JvmOverloads constructor(
     }
 
     /**
-     * Функция отрисовывает часовую стрелку
+     * Функция отрисовки стрелок на циферблате
      */
-    private fun paintHourArrow(canvas: Canvas?){
+    @Throws(ArrayIndexOutOfBoundsException::class)
+    private fun paintTimeArrows(canvas: Canvas?){
+
+        val timeDegrees = getDegreeFromTimeValue()
+
+        //отрисовывка часовой стрелки
         paintBrash.let {
             it.color = arrowHourColor
             it.style = Paint.Style.STROKE
@@ -216,19 +224,14 @@ class ClockView @JvmOverloads constructor(
             getCoordinatesFromDegree(
                 (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
                 hourArrowSizePixels,
-                floatArrayOf(15F)
+                floatArrayOf(timeDegrees[0])
             ),
             paintBrash
         )
-    }
 
-    /**
-     * Функция отрисовывает минутную стрелку
-     */
-    private fun paintMinuteArrow(canvas: Canvas?){
+        //отрисовывка минутной стрелки
         paintBrash.let {
             it.color = arrowMinuteColor
-            it.style = Paint.Style.STROKE
             it.strokeWidth = resources.displayMetrics.density * 4
         }
 
@@ -236,19 +239,14 @@ class ClockView @JvmOverloads constructor(
             getCoordinatesFromDegree(
                 (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
                 minuteArrowSizePixels,
-                floatArrayOf(45F)
+                floatArrayOf(timeDegrees[1])
             ),
             paintBrash
         )
-    }
 
-    /**
-     * Функция отрисовывает секундную стрелку
-     */
-    private fun paintSecondArrow(canvas: Canvas?){
+        //отрисовывка секундной стрелки
         paintBrash.let {
             it.color = arrowSecondColor
-            it.style = Paint.Style.STROKE
             it.strokeWidth = resources.displayMetrics.density * 2
         }
 
@@ -256,7 +254,7 @@ class ClockView @JvmOverloads constructor(
             getCoordinatesFromDegree(
                 (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
                 secondArrowSizePixels,
-                floatArrayOf(90F)
+                floatArrayOf(timeDegrees[2])
             ),
             paintBrash
         )
@@ -287,6 +285,21 @@ class ClockView @JvmOverloads constructor(
                     }
             }
         }
+    }
+
+    /**
+     * Функция переводит значения времени в углы поворота стрелки (в градусах)
+     */
+    private fun getDegreeFromTimeValue(): FloatArray {
+        val hour = hourValue.toFloat()
+        val minute = minuteValue.toFloat()
+        val second = secondValue.toFloat()
+
+        return floatArrayOf(
+            -1 * (180 + hour * 30 + minute/2),
+            -1 * (180 + minute * 6 + second/10),
+            -1 * (180 + second * 6)
+        )
     }
 
     /**
