@@ -1,4 +1,4 @@
-package com.molchanov.molchanov_lesson_2
+package com.molchanov.molchanov_lesson_2.clock
 
 import android.content.Context
 import android.content.res.TypedArray
@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
+import com.molchanov.molchanov_lesson_2.R
 import kotlin.properties.Delegates
 
 class ClockView @JvmOverloads constructor(
@@ -18,7 +19,44 @@ class ClockView @JvmOverloads constructor(
         const val ARROW_HOUR_COLOR = Color.BLACK
         const val ARROW_MINUTE_COLOR = Color.BLACK
         const val ARROW_SECOND_COLOR = Color.RED
+
+        const val NAME_HOUR = "Hour"
+        const val NAME_MINUTE = "Minute"
+        const val NAME_SECOND = "Second"
+
+        const val ERROR_TIME_VALUE = -1
     }
+
+    var hour: Int = 0
+    set(value: Int){
+        if (checkTimeInput(NAME_HOUR,value) == -1){
+            catchTimeInputException(NAME_HOUR, value)
+        }
+        else {
+            field = value
+        }
+    }
+
+    var minute: Int = 3
+        set(value: Int){
+            if (checkTimeInput(NAME_MINUTE,value) == -1){
+                catchTimeInputException(NAME_MINUTE, value)
+            }
+            else {
+                field = value
+            }
+        }
+
+    var second: Int = 6
+        set(value: Int){
+            if (checkTimeInput(NAME_SECOND,value) == -1){
+                catchTimeInputException(NAME_SECOND, value)
+            }
+            else {
+                field = value
+                invalidate()
+            }
+        }
 
     private var arrowHourColor by Delegates.notNull<Int>()
     private var arrowMinuteColor by Delegates.notNull<Int>()
@@ -63,6 +101,41 @@ class ClockView @JvmOverloads constructor(
     //Бизнес-логика отрисовки
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
+    }
+
+
+    private fun checkTimeInput(timeName: String, newValue: Int ): Int{
+        when (timeName){
+            NAME_HOUR -> {
+                return if (newValue in 0..11){
+                    newValue
+                } else {
+                    ERROR_TIME_VALUE
+                }
+            }
+            else -> {
+                return if (newValue in 0..59){
+                    newValue
+                } else {
+                    ERROR_TIME_VALUE
+                }
+            }
+        }
+    }
+
+    private fun catchTimeInputException(timeName: String, newValue: Int){
+        when (timeName){
+            NAME_HOUR -> {
+                throw java.lang.IndexOutOfBoundsException(
+                    "$timeName input parameter must be in 0..11. Your parameter: $newValue"
+                )
+            }
+            else -> {
+                throw java.lang.IndexOutOfBoundsException(
+                    "$timeName input parameter must be in 0..59. Your parameter: $newValue"
+                )
+            }
+        }
     }
 
 }
