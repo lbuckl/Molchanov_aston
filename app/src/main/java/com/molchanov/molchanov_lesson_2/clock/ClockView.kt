@@ -10,6 +10,8 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import com.molchanov.molchanov_lesson_2.R
+import kotlin.math.cos
+import kotlin.math.sin
 import kotlin.properties.Delegates
 
 class ClockView @JvmOverloads constructor(
@@ -31,8 +33,18 @@ class ClockView @JvmOverloads constructor(
     }
 
 
-    private var maxWidthPixels = resources.displayMetrics.widthPixels
-    private var maxHeightPixel = resources.displayMetrics.heightPixels
+    private val maxWidthPixels = resources.displayMetrics.widthPixels
+    private val maxHeightPixel = resources.displayMetrics.heightPixels
+
+    private val radiusSizePixels = maxWidthPixels/4
+
+    private val linesArray: FloatArray by lazy {
+        getCoordinatesFromDegree(
+            (maxWidthPixels/2).toFloat(), (maxHeightPixel/2).toFloat(),
+            radiusSizePixels.toFloat(),
+            floatArrayOf(0F, 30F, 60F, 90F, 120F, 150F, 180F , 210F, 240F, 270F, 300F, 330F)
+        )
+    }
 
     var hour: Int = 0
     set(value: Int){
@@ -134,25 +146,32 @@ class ClockView @JvmOverloads constructor(
 
         canvas?.drawOval(RectF(
             (maxWidthPixels/4).toFloat(),
-            (maxHeightPixel/2 - maxWidthPixels/4).toFloat(),
+            (maxHeightPixel/2 - radiusSizePixels).toFloat(),
             (maxWidthPixels - maxWidthPixels/4).toFloat(),
-            (maxHeightPixel/2 + maxWidthPixels/4).toFloat()
+            (maxHeightPixel/2 + radiusSizePixels).toFloat(),
         ),
             paintOval)
+
+
+        canvas?.drawLines(
+            linesArray,paintOval
+        )
+
+        canvas?.rotate(100.0f)
+
 
         paintOval.let {
             it.color = Color.RED
             it.style = Paint.Style.FILL
-            it.strokeWidth = resources.displayMetrics.density * 4
         }
 
-        canvas?.drawOval(RectF(
+        /*canvas?.drawOval(RectF(
             (maxWidthPixels/4 + maxWidthPixels/40).toFloat(),
             (maxHeightPixel/2 - maxWidthPixels/4 + maxWidthPixels/40).toFloat(),
             (maxWidthPixels - maxWidthPixels/4 - maxWidthPixels/40).toFloat(),
             (maxHeightPixel/2 + maxWidthPixels/4 - maxWidthPixels/40).toFloat()
         ),
-            paintOval)
+            paintOval)*/
 
     }
 
@@ -189,6 +208,31 @@ class ClockView @JvmOverloads constructor(
                 )
             }
         }
+    }
+
+    /**
+     * Функция принимает параметры:
+     * @param startX - начальная координата X в пикселях
+     * @param startY - начальная координата X в пикселях
+     * @param length - длинну линии
+     * @param degrees - массив градусов для поворота относительно начальной точки
+     * Возвращает сплошной масиив с координатами линии в формате
+     * (X начало, Y начало, X конец, Y конец)
+     */
+    private fun getCoordinatesFromDegree(
+        startX: Float, startY: Float, length: Float, degrees: FloatArray
+    ): FloatArray {
+
+        val res = mutableListOf<Float>()
+
+        degrees.forEach {
+            res.add(startX)
+            res.add(startY)
+            res.add((maxWidthPixels/2).toFloat() + (length * (sin(it * 0.0174533F))))
+            res.add((maxHeightPixel/2).toFloat() + (length * (cos(it * 0.0174533F))))
+        }
+
+        return res.toFloatArray()
     }
 
 }
