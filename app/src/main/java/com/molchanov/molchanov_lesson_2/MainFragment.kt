@@ -1,5 +1,6 @@
 package com.molchanov.molchanov_lesson_2
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

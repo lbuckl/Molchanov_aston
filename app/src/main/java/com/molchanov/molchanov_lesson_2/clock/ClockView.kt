@@ -20,7 +20,7 @@ class ClockView @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.ClockViewStyle
 ) : View(context, attrs, defStyleAttr) {
 
-    companion object{
+    companion object {
         const val ARROW_HOUR_COLOR = Color.BLACK
         const val ARROW_MINUTE_COLOR = Color.BLACK
         const val ARROW_SECOND_COLOR = Color.RED
@@ -32,54 +32,55 @@ class ClockView @JvmOverloads constructor(
         const val ERROR_TIME_VALUE = -1
     }
 
-
     private val maxWidthPixels = resources.displayMetrics.widthPixels
     private val maxHeightPixel = resources.displayMetrics.heightPixels
 
-    private val radiusSizePixels = maxWidthPixels/4
+    private val radiusSizePixels = (maxWidthPixels / 4).toFloat()
+    private val secondArrowSizePixels = radiusSizePixels * 0.85F
+    private val minuteArrowSizePixels = radiusSizePixels * 0.65F
+    private val hourArrowSizePixels = radiusSizePixels * 0.45F
+
+    private var arrowHourColor by Delegates.notNull<Int>()
+    private var arrowMinuteColor by Delegates.notNull<Int>()
+    private var arrowSecondColor by Delegates.notNull<Int>()
+
+
 
     private val linesArray: FloatArray by lazy {
         getCoordinatesFromDegree(
-            (maxWidthPixels/2).toFloat(), (maxHeightPixel/2).toFloat(),
-            radiusSizePixels.toFloat(),
-            floatArrayOf(0F, 30F, 60F, 90F, 120F, 150F, 180F , 210F, 240F, 270F, 300F, 330F)
+            (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+            radiusSizePixels,
+            floatArrayOf(0F, 30F, 60F, 90F, 120F, 150F, 180F, 210F, 240F, 270F, 300F, 330F)
         )
     }
 
     var hour: Int = 0
-    set(value: Int){
-        if (checkTimeInput(NAME_HOUR,value) == -1){
-            catchTimeInputException(NAME_HOUR, value)
+        set(value: Int) {
+            if (checkTimeInput(NAME_HOUR, value) == -1) {
+                catchTimeInputException(NAME_HOUR, value)
+            } else {
+                field = value
+            }
         }
-        else {
-            field = value
-        }
-    }
 
     var minute: Int = 3
-        set(value: Int){
-            if (checkTimeInput(NAME_MINUTE,value) == -1){
+        set(value: Int) {
+            if (checkTimeInput(NAME_MINUTE, value) == -1) {
                 catchTimeInputException(NAME_MINUTE, value)
-            }
-            else {
+            } else {
                 field = value
             }
         }
 
     var second: Int = 6
-        set(value: Int){
-            if (checkTimeInput(NAME_SECOND,value) == -1){
+        set(value: Int) {
+            if (checkTimeInput(NAME_SECOND, value) == -1) {
                 catchTimeInputException(NAME_SECOND, value)
-            }
-            else {
+            } else {
                 field = value
                 invalidate()
             }
         }
-
-    private var arrowHourColor by Delegates.notNull<Int>()
-    private var arrowMinuteColor by Delegates.notNull<Int>()
-    private var arrowSecondColor by Delegates.notNull<Int>()
 
     init {
         if (attrs == null) initDefaultAttributes()
@@ -94,11 +95,23 @@ class ClockView @JvmOverloads constructor(
             R.style.DefaultClockViewStyle
         )
 
-        arrowHourColor = attrArray.getColor(R.styleable.ClockView_arrow_hour_color, ARROW_HOUR_COLOR)
-        arrowMinuteColor = attrArray.getColor(R.styleable.ClockView_arrow_minute_color, ARROW_MINUTE_COLOR)
-        arrowSecondColor = attrArray.getColor(R.styleable.ClockView_arrow_second_color, ARROW_SECOND_COLOR)
+        arrowHourColor =
+            attrArray.getColor(R.styleable.ClockView_arrow_hour_color, ARROW_HOUR_COLOR)
+        arrowMinuteColor =
+            attrArray.getColor(R.styleable.ClockView_arrow_minute_color, ARROW_MINUTE_COLOR)
+        arrowSecondColor =
+            attrArray.getColor(R.styleable.ClockView_arrow_second_color, ARROW_SECOND_COLOR)
 
         attrArray.recycle()
+    }
+
+    /**
+     * Функция
+     */
+    fun setNewColorsForArrows(hourColor: Int, minuteColor: Int, secondColor: Int){
+        arrowHourColor = hourColor
+        arrowMinuteColor = minuteColor
+        arrowSecondColor = secondColor
     }
 
     private fun initDefaultAttributes() {
@@ -108,7 +121,7 @@ class ClockView @JvmOverloads constructor(
     }
 
 
-    private val paintOval = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val paintBrash = Paint(Paint.ANTI_ALIAS_FLAG)
 
     //Функция задания размеров
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -124,8 +137,8 @@ class ClockView @JvmOverloads constructor(
         )*/
 
         setMeasuredDimension(
-            resolveSize(maxWidthPixels,widthMeasureSpec),
-            resolveSize(maxHeightPixel,heightMeasureSpec)
+            resolveSize(maxWidthPixels, widthMeasureSpec),
+            resolveSize(maxHeightPixel, heightMeasureSpec)
         )
     }
 
@@ -138,55 +151,130 @@ class ClockView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        paintOval.let {
+        paintWatchFace(canvas)
+
+        paintHourArrow(canvas)
+
+        paintMinuteArrow(canvas)
+
+        paintSecondArrow(canvas)
+    }
+
+    /**
+     * Функция отрисовывает циферблат
+     */
+    private fun paintWatchFace(canvas: Canvas?) {
+
+        //Отрисовка пустотелой окружности
+        paintBrash.let {
             it.color = Color.BLACK
             it.style = Paint.Style.STROKE
             it.strokeWidth = resources.displayMetrics.density * 4
         }
 
-        canvas?.drawOval(RectF(
-            (maxWidthPixels/4).toFloat(),
-            (maxHeightPixel/2 - radiusSizePixels).toFloat(),
-            (maxWidthPixels - maxWidthPixels/4).toFloat(),
-            (maxHeightPixel/2 + radiusSizePixels).toFloat(),
-        ),
-            paintOval)
-
-
-        canvas?.drawLines(
-            linesArray,paintOval
+        canvas?.drawOval(
+            RectF(
+                (maxWidthPixels / 4).toFloat(),
+                (maxHeightPixel / 2 - radiusSizePixels),
+                (maxWidthPixels - maxWidthPixels / 4).toFloat(),
+                (maxHeightPixel / 2 + radiusSizePixels),
+            ),
+            paintBrash
         )
 
-        canvas?.rotate(100.0f)
+        //Отрисовка линий от центра к краям
+        canvas?.drawLines(
+            linesArray, paintBrash
+        )
 
-
-        paintOval.let {
-            it.color = Color.RED
+        //Отрисовка вложенного круга
+        paintBrash.let {
+            it.color = Color.WHITE
             it.style = Paint.Style.FILL
         }
 
-        /*canvas?.drawOval(RectF(
-            (maxWidthPixels/4 + maxWidthPixels/40).toFloat(),
-            (maxHeightPixel/2 - maxWidthPixels/4 + maxWidthPixels/40).toFloat(),
-            (maxWidthPixels - maxWidthPixels/4 - maxWidthPixels/40).toFloat(),
-            (maxHeightPixel/2 + maxWidthPixels/4 - maxWidthPixels/40).toFloat()
-        ),
-            paintOval)*/
-
+        canvas?.drawOval(
+            RectF(
+                (maxWidthPixels / 4 + maxWidthPixels / 40).toFloat(),
+                (maxHeightPixel / 2 - maxWidthPixels / 4 + maxWidthPixels / 40).toFloat(),
+                (maxWidthPixels - maxWidthPixels / 4 - maxWidthPixels / 40).toFloat(),
+                (maxHeightPixel / 2 + maxWidthPixels / 4 - maxWidthPixels / 40).toFloat()
+            ),
+            paintBrash
+        )
     }
 
+    /**
+     * Функция отрисовывает часовую стрелку
+     */
+    private fun paintHourArrow(canvas: Canvas?){
+        paintBrash.let {
+            it.color = arrowHourColor
+            it.style = Paint.Style.STROKE
+            it.strokeWidth = resources.displayMetrics.density * 8
+        }
 
-    private fun checkTimeInput(timeName: String, newValue: Int ): Int{
-        when (timeName){
+        canvas?.drawLines(
+            getCoordinatesFromDegree(
+                (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+                hourArrowSizePixels,
+                floatArrayOf(15F)
+            ),
+            paintBrash
+        )
+    }
+
+    /**
+     * Функция отрисовывает минутную стрелку
+     */
+    private fun paintMinuteArrow(canvas: Canvas?){
+        paintBrash.let {
+            it.color = arrowMinuteColor
+            it.style = Paint.Style.STROKE
+            it.strokeWidth = resources.displayMetrics.density * 4
+        }
+
+        canvas?.drawLines(
+            getCoordinatesFromDegree(
+                (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+                minuteArrowSizePixels,
+                floatArrayOf(45F)
+            ),
+            paintBrash
+        )
+    }
+
+    /**
+     * Функция отрисовывает секундную стрелку
+     */
+    private fun paintSecondArrow(canvas: Canvas?){
+        paintBrash.let {
+            it.color = arrowSecondColor
+            it.style = Paint.Style.STROKE
+            it.strokeWidth = resources.displayMetrics.density * 2
+        }
+
+        canvas?.drawLines(
+            getCoordinatesFromDegree(
+                (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+                secondArrowSizePixels,
+                floatArrayOf(90F)
+            ),
+            paintBrash
+        )
+    }
+
+    private fun checkTimeInput(timeName: String, newValue: Int): Int {
+        when (timeName) {
             NAME_HOUR -> {
-                return if (newValue in 0..11){
+                return if (newValue in 0..11) {
                     newValue
                 } else {
                     ERROR_TIME_VALUE
                 }
             }
             else -> {
-                return if (newValue in 0..59){
+                return if (newValue in 0..59) {
                     newValue
                 } else {
                     ERROR_TIME_VALUE
@@ -195,8 +283,8 @@ class ClockView @JvmOverloads constructor(
         }
     }
 
-    private fun catchTimeInputException(timeName: String, newValue: Int){
-        when (timeName){
+    private fun catchTimeInputException(timeName: String, newValue: Int) {
+        when (timeName) {
             NAME_HOUR -> {
                 throw java.lang.IndexOutOfBoundsException(
                     "$timeName input parameter must be in 0..11. Your parameter: $newValue"
@@ -228,8 +316,8 @@ class ClockView @JvmOverloads constructor(
         degrees.forEach {
             res.add(startX)
             res.add(startY)
-            res.add((maxWidthPixels/2).toFloat() + (length * (sin(it * 0.0174533F))))
-            res.add((maxHeightPixel/2).toFloat() + (length * (cos(it * 0.0174533F))))
+            res.add((maxWidthPixels / 2).toFloat() + (length * (sin(it * 0.0174533F))))
+            res.add((maxHeightPixel / 2).toFloat() + (length * (cos(it * 0.0174533F))))
         }
 
         return res.toFloatArray()
