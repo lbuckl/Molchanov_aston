@@ -1,5 +1,7 @@
 package com.molchanov.molchanov_lesson_2
 
+import com.molchanov.molchanov_lesson_2.base.BaseActivity
+
 class MainActivity : BaseActivity() {
 
     override fun addMainFragment() {

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.molchanov.molchanov_lesson_2.base.BaseFragment
 import com.molchanov.molchanov_lesson_2.databinding.FragmentMainBinding
 
 class MainFragment : BaseFragment() {

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DefaultClockViewStyle">
+        <item name="arrow_hour_color">@color/black</item>
+        <item name="arrow_minute_color">@color/black</item>
+        <item name="arrow_second_color">@color/red</item>
+    </style>
+</resources>
