@@ -41,9 +41,12 @@ class ClockView @JvmOverloads constructor(
     //region инициализация рабочих параметров
 
     //Минимальный размер часов
-    private val minMeasure = min(resources.displayMetrics.widthPixels,resources.displayMetrics.heightPixels) / 4
+    private val minMeasure = min(
+        resources.displayMetrics.widthPixels,
+        resources.displayMetrics.heightPixels
+    ) / 4
 
-    //______________________________________________________________________________________________
+    //Переменные для поздней реализации_____________________________________________________________
     //Ширина и высота экрана в пикселях
     private var maxWidthPixels by Delegates.notNull<Int>()
     private var maxHeightPixel by Delegates.notNull<Int>()
@@ -59,15 +62,13 @@ class ClockView @JvmOverloads constructor(
 
     //Наклон линий рисок
     private lateinit var timeDegrees: FloatArray
-
     private lateinit var hourArrayCoordinates: FloatArray
-
     private lateinit var minuteArrayCoordinates: FloatArray
-
     private lateinit var secondArrayCoordinates: FloatArray
     //______________________________________________________________________________________________
 
     private val paintBrash = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val clockFaceLieWidth = resources.displayMetrics.density * 4
 
     //Цвета стрелок
     private var arrowHourColor by Delegates.notNull<Int>()
@@ -122,7 +123,6 @@ class ClockView @JvmOverloads constructor(
      * Функция для задания времени
      */
     override fun setTime(hour: Int, minute: Int, second: Int){
-
         if (isInit){
             try {
                 checkTimeInput(NAME_HOUR, hour)
@@ -254,7 +254,7 @@ class ClockView @JvmOverloads constructor(
         paintBrash.let {
             it.color = Color.BLACK
             it.style = Paint.Style.STROKE
-            it.strokeWidth = resources.displayMetrics.density * 4
+            it.strokeWidth = clockFaceLieWidth
         }
 
         canvas?.drawOval(
@@ -398,7 +398,7 @@ class ClockView @JvmOverloads constructor(
 
     private fun initAllValues(){
         //Длины (циферблата и стрелок)
-        radiusSizePixels = (maxWidthPixels).toFloat() / 2
+        radiusSizePixels = (maxWidthPixels).toFloat() / 2 - clockFaceLieWidth
         secondArrowSizePixels = radiusSizePixels * 0.85F
         minuteArrowSizePixels = radiusSizePixels * 0.65F
         hourArrowSizePixels = radiusSizePixels * 0.45F
