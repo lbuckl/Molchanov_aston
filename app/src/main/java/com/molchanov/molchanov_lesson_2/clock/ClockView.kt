@@ -41,11 +41,11 @@ class ClockView @JvmOverloads constructor(
     private val minMeasure = min(resources.displayMetrics.widthPixels,resources.displayMetrics.heightPixels) / 4
 
     //Ширина и высота экрана в пикселях
-    private var maxWidthPixels = minMeasure//resources.displayMetrics.widthPixels
-    private var maxHeightPixel = minMeasure//resources.displayMetrics.heightPixels
+    private var maxWidthPixels = minMeasure
+    private var maxHeightPixel = minMeasure
 
     //Длины (циферблата и стрелок)
-    private val radiusSizePixels = (maxWidthPixels).toFloat() // (maxWidthPixels / 4).toFloat()
+    private val radiusSizePixels = (maxWidthPixels).toFloat() / 2
     private val secondArrowSizePixels = radiusSizePixels * 0.85F
     private val minuteArrowSizePixels = radiusSizePixels * 0.65F
     private val hourArrowSizePixels = radiusSizePixels * 0.45F
