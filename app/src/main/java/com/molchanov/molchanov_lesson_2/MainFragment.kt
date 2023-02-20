@@ -1,17 +1,25 @@
 package com.molchanov.molchanov_lesson_2
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.molchanov.molchanov_lesson_2.base.BaseFragment
 import com.molchanov.molchanov_lesson_2.databinding.FragmentMainBinding
+import kotlinx.coroutines.*
+import java.time.Clock
+import java.time.Instant
+import java.time.LocalTime
+import java.time.ZoneId
 
 class MainFragment : BaseFragment() {
 
     companion object {
         val instance = MainFragment()
     }
+
+    private val coroutineClock = CoroutineScope(Dispatchers.Default)
 
     override val binding: FragmentMainBinding
         get() = _binding!!as FragmentMainBinding
@@ -27,10 +35,23 @@ class MainFragment : BaseFragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.watch.setTime(11, 50, 0)
+        coroutineClock.launch {
+            while (true){
+                LocalTime.now(ZoneId.of("Europe/Moscow")).let {
+                    binding.watch.setTime(it.hour, it.minute, it.second)
+                }
+                delay(1000)
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        _binding = null
+        coroutineClock.cancel()
     }
 }
