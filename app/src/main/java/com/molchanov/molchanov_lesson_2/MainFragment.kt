@@ -1,19 +1,16 @@
 package com.molchanov.molchanov_lesson_2
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.molchanov.molchanov_lesson_2.base.BaseFragment
 import com.molchanov.molchanov_lesson_2.databinding.FragmentMainBinding
 import kotlinx.coroutines.*
-import java.time.Clock
-import java.time.Instant
 import java.time.LocalTime
 import java.time.ZoneId
 
-class MainFragment : BaseFragment() {
+class MainFragment: BaseFragment() {
 
     companion object {
         val instance = MainFragment()

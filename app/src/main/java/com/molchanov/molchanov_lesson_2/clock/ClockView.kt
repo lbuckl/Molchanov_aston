@@ -7,18 +7,23 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
-import android.util.TypedValue
+import android.util.Log
 import android.view.View
 import com.molchanov.molchanov_lesson_2.R
 import kotlin.math.cos
+import kotlin.math.min
 import kotlin.math.sin
 import kotlin.properties.Delegates
 
+/**
+ * Класс реализующий отрисовку аналоговых часов
+ *
+ */
 class ClockView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.ClockViewStyle
-) : View(context, attrs, defStyleAttr) {
+) : View(context, attrs, defStyleAttr), IClockView {
 
     companion object {
         const val ARROW_HOUR_COLOR = Color.BLACK
@@ -28,26 +33,34 @@ class ClockView @JvmOverloads constructor(
         const val NAME_HOUR = "Hour"
         const val NAME_MINUTE = "Minute"
         const val NAME_SECOND = "Second"
-
-        const val ERROR_TIME_VALUE = -1
     }
 
-    private val maxWidthPixels = resources.displayMetrics.widthPixels
-    private val maxHeightPixel = resources.displayMetrics.heightPixels
+    //region инициализация рабочих параметров
 
-    private val radiusSizePixels = (maxWidthPixels / 4).toFloat()
+    //Минимальный размер часов
+    private val minMeasure = min(resources.displayMetrics.widthPixels,resources.displayMetrics.heightPixels) / 4
+
+    //Ширина и высота экрана в пикселях
+    private var maxWidthPixels = minMeasure//resources.displayMetrics.widthPixels
+    private var maxHeightPixel = minMeasure//resources.displayMetrics.heightPixels
+
+    //Длины (циферблата и стрелок)
+    private val radiusSizePixels = (maxWidthPixels).toFloat() // (maxWidthPixels / 4).toFloat()
     private val secondArrowSizePixels = radiusSizePixels * 0.85F
     private val minuteArrowSizePixels = radiusSizePixels * 0.65F
     private val hourArrowSizePixels = radiusSizePixels * 0.45F
 
+    //Цвета стрелок
     private var arrowHourColor by Delegates.notNull<Int>()
     private var arrowMinuteColor by Delegates.notNull<Int>()
     private var arrowSecondColor by Delegates.notNull<Int>()
 
+    //Текущие значения времени
     private var hourValue = 0
     private var minuteValue = 0
     private var secondValue = 0
 
+    //Массив координат для отрисовки стрелок
     private val linesArray: FloatArray by lazy {
         getCoordinatesFromDegree(
             (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
@@ -56,6 +69,7 @@ class ClockView @JvmOverloads constructor(
         )
     }
 
+    //
     private var timeDegrees = getDegreeFromTimeValue()
 
     private var hourArrayCoordinates = getCoordinatesFromDegree(
@@ -120,7 +134,7 @@ class ClockView @JvmOverloads constructor(
     /**
      * Функция для задания времени
      */
-    fun setTime(hour: Int, minute: Int, second: Int){
+    override fun setTime(hour: Int, minute: Int, second: Int){
 
         try {
             checkTimeInput(NAME_HOUR, hour)
@@ -164,19 +178,64 @@ class ClockView @JvmOverloads constructor(
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         //super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-        val minWidth = suggestedMinimumWidth + paddingLeft + paddingRight
-        val minHeight = suggestedMinimumHeight + paddingBottom + paddingTop
+        val minWidth = minMeasure + paddingLeft + paddingRight
+        val minHeight = minMeasure  + paddingBottom + paddingTop
+
+        setMeasuredDimension(
+            resolveSizeAndState(minWidth, widthMeasureSpec),
+            resolveSizeAndState(minHeight, heightMeasureSpec)
+        )
 
         /*val sizeInPixels = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
             100.0F,
             resources.displayMetrics
         )*/
+    }
 
-        setMeasuredDimension(
-            resolveSize(maxWidthPixels, widthMeasureSpec),
-            resolveSize(maxHeightPixel, heightMeasureSpec)
-        )
+    /**
+     * size - рассчитанное
+     * specSize - заданное в View
+     */
+    private fun resolveSizeAndState(size: Int, measureSpec: Int): Int {
+
+        val specMode = MeasureSpec.getMode(measureSpec)
+        val specSize = MeasureSpec.getSize(measureSpec)
+
+        Log.v("@@@", "size: $size")
+        Log.v("@@@", "specSize: $specSize")
+
+        val result: Int = when (specMode) {
+            MeasureSpec.AT_MOST -> {
+                maxWidthPixels = size / 2
+                maxHeightPixel = size / 2
+                size
+            }
+            MeasureSpec.EXACTLY -> {
+                if (specSize < size){
+                    maxWidthPixels = size / 2
+                    maxHeightPixel = size / 2
+                    size
+                }
+
+                else {
+                    maxWidthPixels = specSize / 2
+                    maxHeightPixel = specSize / 2
+                    specSize
+                }
+            }
+            MeasureSpec.UNSPECIFIED -> {
+                maxWidthPixels = size / 2
+                maxHeightPixel = size / 2
+                size
+            }
+            else -> {
+                maxWidthPixels = size / 2
+                maxHeightPixel = size / 2
+                size
+            }
+        }
+        return result
     }
 
     //Функция расположения элементов в кастом вью
@@ -213,10 +272,10 @@ class ClockView @JvmOverloads constructor(
 
         canvas?.drawOval(
             RectF(
-                (maxWidthPixels / 4).toFloat(),
-                (maxHeightPixel / 2 - radiusSizePixels),
-                (maxWidthPixels - maxWidthPixels / 4).toFloat(),
-                (maxHeightPixel / 2 + radiusSizePixels),
+                maxHeightPixel / 2 - radiusSizePixels,
+                maxHeightPixel / 2 - radiusSizePixels,
+                maxWidthPixels / 2 + radiusSizePixels,
+                maxHeightPixel / 2 + radiusSizePixels
             ),
             paintBrash
         )
@@ -234,10 +293,10 @@ class ClockView @JvmOverloads constructor(
 
         canvas?.drawOval(
             RectF(
-                (maxWidthPixels / 4 + maxWidthPixels / 40).toFloat(),
-                (maxHeightPixel / 2 - maxWidthPixels / 4 + maxWidthPixels / 40).toFloat(),
-                (maxWidthPixels - maxWidthPixels / 4 - maxWidthPixels / 40).toFloat(),
-                (maxHeightPixel / 2 + maxWidthPixels / 4 - maxWidthPixels / 40).toFloat()
+                maxHeightPixel / 2 - radiusSizePixels * 0.9f,
+                maxHeightPixel / 2 - radiusSizePixels * 0.9f,
+                maxWidthPixels / 2 + radiusSizePixels * 0.9f,
+                maxHeightPixel / 2 + radiusSizePixels * 0.9f
             ),
             paintBrash
         )
