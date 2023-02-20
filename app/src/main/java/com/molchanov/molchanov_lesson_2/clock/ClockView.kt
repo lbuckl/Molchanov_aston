@@ -40,6 +40,7 @@ class ClockView @JvmOverloads constructor(
     //Минимальный размер часов
     private val minMeasure = min(resources.displayMetrics.widthPixels,resources.displayMetrics.heightPixels) / 4
 
+    //______________________________________________________________________________________________
     //Ширина и высота экрана в пикселях
     private var maxWidthPixels = minMeasure
     private var maxHeightPixel = minMeasure
@@ -50,16 +51,6 @@ class ClockView @JvmOverloads constructor(
     private val minuteArrowSizePixels = radiusSizePixels * 0.65F
     private val hourArrowSizePixels = radiusSizePixels * 0.45F
 
-    //Цвета стрелок
-    private var arrowHourColor by Delegates.notNull<Int>()
-    private var arrowMinuteColor by Delegates.notNull<Int>()
-    private var arrowSecondColor by Delegates.notNull<Int>()
-
-    //Текущие значения времени
-    private var hourValue = 0
-    private var minuteValue = 0
-    private var secondValue = 0
-
     //Массив координат для отрисовки стрелок
     private val linesArray: FloatArray by lazy {
         getCoordinatesFromDegree(
@@ -69,7 +60,7 @@ class ClockView @JvmOverloads constructor(
         )
     }
 
-    //
+    //Наклон линий рисок
     private var timeDegrees = getDegreeFromTimeValue()
 
     private var hourArrayCoordinates = getCoordinatesFromDegree(
@@ -89,8 +80,19 @@ class ClockView @JvmOverloads constructor(
         secondArrowSizePixels,
         floatArrayOf(timeDegrees[2])
     )
+    //______________________________________________________________________________________________
 
     private val paintBrash = Paint(Paint.ANTI_ALIAS_FLAG)
+
+    //Цвета стрелок
+    private var arrowHourColor by Delegates.notNull<Int>()
+    private var arrowMinuteColor by Delegates.notNull<Int>()
+    private var arrowSecondColor by Delegates.notNull<Int>()
+
+    //Текущие значения времени
+    private var hourValue = 0
+    private var minuteValue = 0
+    private var secondValue = 0
 
     init {
         if (attrs == null) initDefaultAttributes()
@@ -185,12 +187,6 @@ class ClockView @JvmOverloads constructor(
             resolveSizeAndState(minWidth, widthMeasureSpec),
             resolveSizeAndState(minHeight, heightMeasureSpec)
         )
-
-        /*val sizeInPixels = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            100.0F,
-            resources.displayMetrics
-        )*/
     }
 
     /**
@@ -407,5 +403,9 @@ class ClockView @JvmOverloads constructor(
         }
 
         return res.toFloatArray()
+    }
+
+    private fun initAllValues(){
+
     }
 }
