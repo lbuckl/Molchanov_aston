@@ -16,7 +16,6 @@ import kotlin.properties.Delegates
 
 /**
  * Класс реализующий отрисовку аналоговых часов
- *
  */
 class ClockView @JvmOverloads constructor(
     context: Context,
@@ -45,10 +44,13 @@ class ClockView @JvmOverloads constructor(
         resources.displayMetrics.heightPixels
     ) / 4
 
-    //Переменные для поздней реализации_____________________________________________________________
+    //Переменные для поздней реализации_____________________________
     //Ширина и высота экрана в пикселях
     private var maxWidthPixels by Delegates.notNull<Int>()
     private var maxHeightPixel by Delegates.notNull<Int>()
+
+    private var centerWidthPixel by Delegates.notNull<Float>()
+    private var centerHeightPixel by Delegates.notNull<Float>()
 
     //Длины (циферблата и стрелок)
     private var radiusSizePixels by Delegates.notNull<Float>()
@@ -64,7 +66,7 @@ class ClockView @JvmOverloads constructor(
     private lateinit var hourArrayCoordinates: FloatArray
     private lateinit var minuteArrayCoordinates: FloatArray
     private lateinit var secondArrayCoordinates: FloatArray
-    //______________________________________________________________________________________________
+    //_____________________________________________________________
 
     private val paintBrash = Paint(Paint.ANTI_ALIAS_FLAG)
     private val clockFaceLieWidth = resources.displayMetrics.density * 4
@@ -84,6 +86,7 @@ class ClockView @JvmOverloads constructor(
         else initAttributes(attrs, defStyleAttr)
     }
 
+    //Инициализация входных аттрибутов
     private fun initAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
         val attrArray: TypedArray = context.obtainStyledAttributes(
             attrs,
@@ -102,46 +105,43 @@ class ClockView @JvmOverloads constructor(
         attrArray.recycle()
     }
 
+    //Инициализация цвета стрелок
     private fun initDefaultAttributes() {
         arrowHourColor = ARROW_HOUR_COLOR
         arrowMinuteColor = ARROW_MINUTE_COLOR
         arrowSecondColor = ARROW_SECOND_COLOR
     }
+    //endregion
 
     //region функции взаимодействия с элементами часов
     /**
-     * Функция установки цвета для стрелок
+     * Функции установки цвета для стрелок
      */
-    fun setNewColorsForArrows(hourColor: Int, minuteColor: Int, secondColor: Int){
-        arrowHourColor = hourColor
-        arrowMinuteColor = minuteColor
-        arrowSecondColor = secondColor
-    }
-
-    fun setHourColorsForArrows(hourColor: Int){
+    override fun setHourColorsForArrows(hourColor: Int) {
         arrowHourColor = hourColor
     }
 
-    fun setMinuteColorsForArrows(minuteColor: Int){
+    override fun setMinuteColorsForArrows(minuteColor: Int) {
         arrowMinuteColor = minuteColor
     }
 
-    fun setSecondColorsForArrows(secondColor: Int){
+    override fun setSecondColorsForArrows(secondColor: Int) {
         arrowSecondColor = secondColor
     }
 
     /**
      * Функция для задания времени
      */
-    override fun setTime(hour: Int, minute: Int, second: Int){
-        if (isInit){
+    override fun setTime(hour: Int, minute: Int, second: Int) {
+        if (isInit) {
             try {
                 checkTimeInput(NAME_HOUR, hour)
                 checkTimeInput(NAME_MINUTE, minute)
                 checkTimeInput(NAME_SECOND, second)
-            }catch (e: IndexOutOfBoundsException){
+            } catch (e: IndexOutOfBoundsException) {
                 e.printStackTrace()
-                //TODO Message
+
+                //TODO Индикация: время отображается не корректно
             }
 
             hourValue = hour
@@ -151,20 +151,19 @@ class ClockView @JvmOverloads constructor(
             timeDegrees = getDegreeFromTimeValue()
 
             hourArrayCoordinates = getCoordinatesFromDegree(
-                (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+                centerWidthPixel, centerHeightPixel,
                 hourArrowSizePixels,
                 floatArrayOf(timeDegrees[0])
             )
 
-
             minuteArrayCoordinates = getCoordinatesFromDegree(
-                (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+                centerWidthPixel, centerHeightPixel,
                 minuteArrowSizePixels,
                 floatArrayOf(timeDegrees[1])
             )
 
             secondArrayCoordinates = getCoordinatesFromDegree(
-                (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+                centerWidthPixel, centerHeightPixel,
                 secondArrowSizePixels,
                 floatArrayOf(timeDegrees[2])
             )
@@ -176,12 +175,12 @@ class ClockView @JvmOverloads constructor(
 
     //Функция задания размеров
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        //super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
         val minWidth = minMeasure + paddingLeft + paddingRight
-        val minHeight = minMeasure  + paddingBottom + paddingTop
+        val minHeight = minMeasure + paddingBottom + paddingTop
 
-        exactlyMinimum = min(MeasureSpec.getSize(widthMeasureSpec),MeasureSpec.getSize(heightMeasureSpec))
+        exactlyMinimum =
+            min(MeasureSpec.getSize(widthMeasureSpec), MeasureSpec.getSize(heightMeasureSpec))
 
         setMeasuredDimension(
             resolveSizeAndState(minWidth, widthMeasureSpec),
@@ -205,12 +204,11 @@ class ClockView @JvmOverloads constructor(
                 size
             }
             MeasureSpec.EXACTLY -> {
-                if (specSize < size){
+                if (specSize < size) {
                     maxWidthPixels = size
                     maxHeightPixel = size
                     size
-                }
-                else {
+                } else {
                     maxWidthPixels = exactlyMinimum
                     maxHeightPixel = exactlyMinimum
                     specSize
@@ -230,28 +228,26 @@ class ClockView @JvmOverloads constructor(
         return result
     }
 
-    //Функция расположения элементов в кастом вью
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
-        super.onLayout(changed, left, top, right, bottom)
-    }
-
     //Бизнес-логика отрисовки
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        if (isInit){
+        if (isInit) {
+
             paintWatchFace(canvas)
 
             try {
                 paintTimeArrows(canvas)
-            }catch (e: ArrayIndexOutOfBoundsException){
+            } catch (e: ArrayIndexOutOfBoundsException) {
                 e.printStackTrace()
-                //TODO Message
+
+                //TODO Индикация: часы работают не корректно
             }
-        }
-        else {
+        } else {
             initAllValues()
+
             isInit = true
+
             requestLayout()
         }
     }
@@ -304,7 +300,7 @@ class ClockView @JvmOverloads constructor(
      * Функция отрисовки стрелок на циферблате
      */
     @Throws(ArrayIndexOutOfBoundsException::class)
-    private fun paintTimeArrows(canvas: Canvas?){
+    private fun paintTimeArrows(canvas: Canvas?) {
         //отрисовывка часовой стрелки
         paintBrash.let {
             it.color = arrowHourColor
@@ -347,22 +343,22 @@ class ClockView @JvmOverloads constructor(
     private fun checkTimeInput(timeName: String, newValue: Int): Int {
         when (timeName) {
             NAME_HOUR -> {
-                    if (newValue in 0..11) {
-                        return newValue
-                    } else {
-                        throw java.lang.IndexOutOfBoundsException(
-                            "Class ${this::class.simpleName}: input parameter \"$timeName\" must be in 0..11. Your parameter: $newValue"
-                        )
-                    }
+                if (newValue in 0..11) {
+                    return newValue
+                } else {
+                    throw java.lang.IndexOutOfBoundsException(
+                        "Class ${this::class.simpleName}: input parameter \"$timeName\" must be in 0..11. Your parameter: $newValue"
+                    )
+                }
             }
             else -> {
-                    if (newValue in 0..59) {
-                        return newValue
-                    } else {
-                        throw java.lang.IndexOutOfBoundsException(
-                            "Class ${this::class.simpleName}: input parameter \"$timeName\" must be in 0..59. Your parameter: $newValue"
-                        )
-                    }
+                if (newValue in 0..59) {
+                    return newValue
+                } else {
+                    throw java.lang.IndexOutOfBoundsException(
+                        "Class ${this::class.simpleName}: input parameter \"$timeName\" must be in 0..59. Your parameter: $newValue"
+                    )
+                }
             }
         }
     }
@@ -376,8 +372,8 @@ class ClockView @JvmOverloads constructor(
         val second = secondValue.toFloat()
 
         return floatArrayOf(
-            -1 * (180 + hour * 30 + minute/2),
-            -1 * (180 + minute * 6 + second/10),
+            -1 * (180 + hour * 30 + minute / 2),
+            -1 * (180 + minute * 6 + second / 10),
             -1 * (180 + second * 6)
         )
     }
@@ -400,8 +396,8 @@ class ClockView @JvmOverloads constructor(
         degrees.forEach {
             res.add(startX)
             res.add(startY)
-            res.add((maxWidthPixels / 2).toFloat() + (length * (sin(it * 0.0174533F))))
-            res.add((maxHeightPixel / 2).toFloat() + (length * (cos(it * 0.0174533F))))
+            res.add(centerWidthPixel + (length * (sin(it * 0.0174533F))))
+            res.add(centerHeightPixel + (length * (cos(it * 0.0174533F))))
         }
 
         return res.toFloatArray()
@@ -410,37 +406,42 @@ class ClockView @JvmOverloads constructor(
     /**
      * Инициализация всех параметров участвующих в отрисовке часов
      */
-    private fun initAllValues(){
+    private fun initAllValues() {
+
+        centerWidthPixel = (maxWidthPixels / 2).toFloat()
+        centerHeightPixel = (maxHeightPixel / 2).toFloat()
+
         //Длины (циферблата и стрелок)
         radiusSizePixels = (maxWidthPixels).toFloat() / 2 - clockFaceLieWidth
+
         secondArrowSizePixels = radiusSizePixels * 0.85F
         minuteArrowSizePixels = radiusSizePixels * 0.65F
         hourArrowSizePixels = radiusSizePixels * 0.45F
 
         //Массив координат для отрисовки стрелок
         linesArray = getCoordinatesFromDegree(
-                (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
-                radiusSizePixels,
-                floatArrayOf(0F, 30F, 60F, 90F, 120F, 150F, 180F, 210F, 240F, 270F, 300F, 330F)
-            )
+            centerWidthPixel, centerHeightPixel,
+            radiusSizePixels,
+            floatArrayOf(0F, 30F, 60F, 90F, 120F, 150F, 180F, 210F, 240F, 270F, 300F, 330F)
+        )
 
         //Наклон линий рисок
         timeDegrees = getDegreeFromTimeValue()
 
         hourArrayCoordinates = getCoordinatesFromDegree(
-            (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+            centerWidthPixel, centerHeightPixel,
             hourArrowSizePixels,
             floatArrayOf(timeDegrees[0])
         )
 
         minuteArrayCoordinates = getCoordinatesFromDegree(
-            (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+            centerWidthPixel, centerHeightPixel,
             minuteArrowSizePixels,
             floatArrayOf(timeDegrees[1])
         )
 
         secondArrayCoordinates = getCoordinatesFromDegree(
-            (maxWidthPixels / 2).toFloat(), (maxHeightPixel / 2).toFloat(),
+            centerWidthPixel, centerHeightPixel,
             secondArrowSizePixels,
             floatArrayOf(timeDegrees[2])
         )

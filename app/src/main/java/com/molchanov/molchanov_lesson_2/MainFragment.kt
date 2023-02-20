@@ -11,7 +11,10 @@ import kotlinx.coroutines.*
 import java.time.LocalTime
 import java.time.ZoneId
 
-class MainFragment: BaseFragment() {
+/**
+ * Фрагмент с отображением часов
+ */
+class MainFragment : BaseFragment() {
 
     companion object {
         val instance = MainFragment()
@@ -26,7 +29,7 @@ class MainFragment: BaseFragment() {
     private var selectedTimeChip = 0
 
     override val binding: FragmentMainBinding
-        get() = _binding!!as FragmentMainBinding
+        get() = _binding!! as FragmentMainBinding
 
 
     override fun onCreateView(
@@ -34,7 +37,7 @@ class MainFragment: BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainBinding.inflate(layoutInflater,container,false)
+        _binding = FragmentMainBinding.inflate(layoutInflater, container, false)
 
         return binding.root
     }
@@ -47,9 +50,12 @@ class MainFragment: BaseFragment() {
         initSelectColorButtons()
     }
 
-    private fun checkTime(){
+    /**
+     * Функция запускает слежение за системным временем и сетит его в ClockView
+     */
+    private fun checkTime() {
         coroutineClock.launch {
-            while (true){
+            while (true) {
                 LocalTime.now(ZoneId.of("Europe/Moscow")).let {
                     binding.watch.setTime(it.hour, it.minute, it.second)
                 }
@@ -58,8 +64,8 @@ class MainFragment: BaseFragment() {
         }
     }
 
-    private fun initSelectColorButtons(){
-        with(binding){
+    private fun initSelectColorButtons() {
+        with(binding) {
 
             chipHour.setOnClickListener {
                 selectedTimeChip = HOUR_CHIP_FLAG
@@ -102,9 +108,9 @@ class MainFragment: BaseFragment() {
     /**
      * Функция задаёт цвет стрелки часов
      */
-    private fun setClockArrowColor(timeFlag: Int, color: Int){
-        with(binding.watch){
-            when (timeFlag){
+    private fun setClockArrowColor(timeFlag: Int, color: Int) {
+        with(binding.watch) {
+            when (timeFlag) {
                 HOUR_CHIP_FLAG -> {
                     setHourColorsForArrows(color)
                 }
