@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import com.molchanov.molchanov_lesson_2.R
 import kotlin.math.cos
@@ -116,6 +115,18 @@ class ClockView @JvmOverloads constructor(
     fun setNewColorsForArrows(hourColor: Int, minuteColor: Int, secondColor: Int){
         arrowHourColor = hourColor
         arrowMinuteColor = minuteColor
+        arrowSecondColor = secondColor
+    }
+
+    fun setHourColorsForArrows(hourColor: Int){
+        arrowHourColor = hourColor
+    }
+
+    fun setMinuteColorsForArrows(minuteColor: Int){
+        arrowMinuteColor = minuteColor
+    }
+
+    fun setSecondColorsForArrows(secondColor: Int){
         arrowSecondColor = secondColor
     }
 
@@ -396,6 +407,9 @@ class ClockView @JvmOverloads constructor(
         return res.toFloatArray()
     }
 
+    /**
+     * Инициализация всех параметров участвующих в отрисовке часов
+     */
     private fun initAllValues(){
         //Длины (циферблата и стрелок)
         radiusSizePixels = (maxWidthPixels).toFloat() / 2 - clockFaceLieWidth
@@ -409,7 +423,6 @@ class ClockView @JvmOverloads constructor(
                 radiusSizePixels,
                 floatArrayOf(0F, 30F, 60F, 90F, 120F, 150F, 180F, 210F, 240F, 270F, 300F, 330F)
             )
-
 
         //Наклон линий рисок
         timeDegrees = getDegreeFromTimeValue()
