@@ -40,4 +40,12 @@
 
     <!-- _________________________________________________________________ -->
 
+
+    <!-- Стили Splash Activity -->
+    <style name="SplashTextStile">
+        <item name="android:textColor">@color/text_invisible</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
 </resources>
