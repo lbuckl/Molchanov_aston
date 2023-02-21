@@ -1,6 +1,7 @@
 package com.molchanov.molchanov_lesson_2
 
 import android.os.Bundle
+import com.molchanov.molchanov_lesson_2.base.BaseActivity
 import com.molchanov.molchanov_lesson_2.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {
