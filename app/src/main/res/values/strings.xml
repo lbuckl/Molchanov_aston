@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Aston intensive</string>
+
+    <string name="aston_intensive_splash_text">Aston intensive \n Molchanov Vadim</string>
+
+    <string name="entrance">Entrance</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="enter">Enter</string>
+    <string name="wrong_pass">Wrong login or password</string>
+
     <string name="tv_aston_card_primary">IT solutions for business development</string>
     <string name="tv_aston_card_secondary">Software development</string>
-
-    <!-- Content description -->
-    <string name="iv_welcome" translatable="false">iv_welcome</string>
-    <string name="aston_icon" translatable="false">aston_icon</string>
     <string name="about_us">About us:</string>
     <string name="about_us_description">Aston is a full service software development company. For 15 years we have been helping customers around the world transform their business by creating effective mobile and desktop solutions</string>
+
     <string name="offices">Offices</string>
     <string name="moscow">Moscow</string>
     <string name="saint_petersburg">Saint Petersburg</string>
@@ -18,12 +24,17 @@
     <string name="gomel">Gomel</string>
     <string name="minsk">Minsk</string>
     <string name="contacts">Contacts</string>
+
     <string name="jobs">Jobs</string>
-    <string name="gallery">Gallery</string>
-    <string name="aston_intensive_splash_text">Aston intensive \n Molchanov Vadim</string>
-    <string name="entrance">Entrance</string>
-    <string name="name">Name</string>
-    <string name="password">Password</string>
-    <string name="enter">Enter</string>
-    <string name="wrong_pass">Wrong login or password</string>
+    <string name="backend_developer">Backend developer</string>
+    <string name="backend_developer_description">Lang: Java \nExp: from 3 years</string>
+    <string name="frontend_developer">Frontend developer</string>
+    <string name="frontend_developer_description">Lang: JavaScript \nExp: from 3 years</string>
+    <string name="android_developer">Android developer</string>
+    <string name="android_developer_description">Lang: Java/Kotlin \nExp: from 3 years</string>
+
+
+    <!-- Content description -->
+    <string name="iv_welcome" translatable="false">iv_welcome</string>
+    <string name="aston_icon" translatable="false">aston_icon</string>
 </resources>

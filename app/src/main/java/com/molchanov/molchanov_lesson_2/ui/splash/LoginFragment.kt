@@ -35,7 +35,8 @@ class LoginFragment : BaseFragment() {
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
-        initButtonEnter()
+        //initButtonEnter()
+        startActivity(Intent(requireContext(), MainActivity::class.java))
 
         return binding.root
     }

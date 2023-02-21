@@ -8,13 +8,72 @@
     tools:context=".ui.main.pages.OfficesFragment">
 
 
-    <TextView
-        android:id="@+id/textView2"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_offices"
+        style="@style/AstonCardPrimaryTextStile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Offices"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/offices"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/cg_offices"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:singleSelection="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_offices">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_moscow"
+            style="@style/MenuChipStyle"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/moscow" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_kazan"
+            style="@style/MenuChipStyle"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kazan" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_rnd"
+            style="@style/MenuChipStyle"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rostov_on_don" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_minsk"
+            style="@style/MenuChipStyle"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minsk" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_spb"
+            style="@style/MenuChipStyle"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/saint_petersburg" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_offices_gomel"
+            style="@style/MenuChipStyle"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gomel" />
+
+    </com.google.android.material.chip.ChipGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

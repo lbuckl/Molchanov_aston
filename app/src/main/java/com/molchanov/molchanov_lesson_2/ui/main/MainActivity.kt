@@ -2,15 +2,16 @@ package com.molchanov.molchanov_lesson_2.ui.main
 
 import android.os.Bundle
 import android.util.Log
-import androidx.viewbinding.ViewBinding
+import android.view.MenuItem
+import android.view.View
+import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
 import com.molchanov.molchanov_lesson_2.R
 import com.molchanov.molchanov_lesson_2.databinding.ActivityMainBinding
 import com.molchanov.molchanov_lesson_2.ui.base.BaseActivity
-import com.molchanov.molchanov_lesson_2.ui.navigation.Router
 import com.molchanov.molchanov_lesson_2.ui.main.pages.AstonMainFragment
-import com.molchanov.molchanov_lesson_2.ui.splash.LoginFragment
 import com.molchanov.molchanov_lesson_2.ui.main.pages.OfficesFragment
 import com.molchanov.molchanov_lesson_2.ui.main.pages.VacancyFragment
+import com.molchanov.molchanov_lesson_2.ui.navigation.Router
 
 class MainActivity: BaseActivity<ActivityMainBinding>() {
 
@@ -47,7 +48,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
     private fun initMenuListener(){
         binding.bnvMain.menu.let { menu ->
 
-            binding.bnvMain.setOnItemReselectedListener { item ->
+            binding.bnvMain.setOnItemSelectedListener { item ->
                 when(item){
                     menu.findItem(R.id.bv_item_about_us) -> {
                         lastMenuItemId = R.id.bv_item_about_us
@@ -76,6 +77,8 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
                         )
                     }
                 }
+
+                return@setOnItemSelectedListener true
             }
         }
     }

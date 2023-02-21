@@ -40,8 +40,6 @@ class AstonMainFragment() : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initWelcomeImage()
-
-        initButtons()
     }
 
     /**
@@ -59,33 +57,6 @@ class AstonMainFragment() : BaseFragment() {
         } catch (e: ArrayIndexOutOfBoundsException) {
             e.printStackTrace()
             binding.ivAstonWelcome.loadImageFromUrl(R.drawable.pic_aston_welcome)
-        }
-    }
-
-    /**
-     * Функция инициализирует кликкеры дял кнопок
-     */
-    private fun initButtons() {
-        with(binding) {
-
-            btnContacts.setOnClickListener {
-                loading()
-            }
-
-            btnGallery.setOnClickListener {
-                loading()
-            }
-
-            btnJobs.setOnClickListener {
-                loading()
-            }
-        }
-    }
-
-    private fun loading(){
-        with(binding){
-            groupBottomInfo.visibility = View.GONE
-            progressCircular.visibility = View.VISIBLE
         }
     }
 }

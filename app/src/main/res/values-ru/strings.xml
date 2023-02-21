@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Aston интенсив</string>
+
+    <string name="aston_intensive_splash_text">Aston интенсив \n Молчанов Вадим</string>
+
+    <string name="entrance">Вход</string>
+    <string name="name">Имя</string>
+    <string name="password">Пароль</string>
+    <string name="enter">Войти</string>
+    <string name="wrong_pass">Не верный логин или пароль</string>
+
     <string name="tv_aston_card_primary">ИТ-решения для развития бизнеса</string>
     <string name="tv_aston_card_secondary">Разработка програмнного обеспечения</string>
     <string name="about_us">О нас:</string>
     <string name="about_us_description">Эстон - компания по разработке ПО с полным циклом услуг. Уже 15 лет мы помогаем заказчикам повсему миру трансфорировать бизнес, создавая эффективные мобильные и десктопные решения</string>
+
     <string name="offices">Оффисы</string>
     <string name="moscow">Москва</string>
     <string name="saint_petersburg">Санкт-Петербург</string>
@@ -14,12 +24,12 @@
     <string name="gomel">Гомель</string>
     <string name="minsk">Минск</string>
     <string name="contacts">Контакты</string>
+
     <string name="jobs">Вакансии</string>
-    <string name="gallery">Галерея</string>
-    <string name="aston_intensive_splash_text">Aston интенсив \n Молчанов Вадим</string>
-    <string name="entrance">Вход</string>
-    <string name="name">Имя</string>
-    <string name="password">Пароль</string>
-    <string name="enter">Войти</string>
-    <string name="wrong_pass">Не верный логин или пароль</string>
+    <string name="backend_developer">Бэкэнд разработчик</string>
+    <string name="backend_developer_description">Язык: Java \n Опыт: от 3 лет</string>
+    <string name="frontend_developer">Фронтенд разработчик</string>
+    <string name="frontend_developer_description">Lang: JavaScript \nExp: from 3 years</string>
+    <string name="android_developer">Андроид разработчик</string>
+    <string name="android_developer_description">Lang: Java/Kotlin \nExp: from 3 years</string>
 </resources>

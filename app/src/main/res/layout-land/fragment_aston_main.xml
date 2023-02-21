@@ -11,7 +11,7 @@
         android:layout_height="0dp"
         android:contentDescription="@string/iv_welcome"
         android:scaleType="fitXY"
-        app:layout_constraintHeight_percent="0.36"
+        app:layout_constraintHeight_percent="0.43"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.43"
@@ -42,6 +42,7 @@
         android:contentDescription="@string/aston_icon"
         app:layout_constraintBottom_toBottomOf="@+id/iv_aston_welcome"
         app:layout_constraintStart_toEndOf="@+id/iv_aston_welcome_right_barrier"
+        app:layout_constraintTop_toBottomOf="@+id/group_bottom_info"
         app:srcCompat="@drawable/ic_aston" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -85,121 +86,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/about_us_description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/iv_aston_welcome_right_barrier"
+        app:layout_constraintEnd_toStartOf="@+id/gl_margin_right"
         app:layout_constraintStart_toStartOf="@+id/gl_margin_left_barrier"
         app:layout_constraintTop_toBottomOf="@+id/tv_aston_about_primary" />
 
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_offices"
-        style="@style/AstonCardPrimaryTextStile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/iv_aston_icon"
-        android:text="@string/offices"
-        app:layout_constraintLeft_toRightOf="@+id/iv_aston_welcome_right_barrier"
-        app:layout_constraintRight_toLeftOf="@+id/gl_margin_right_barrier"
-        app:layout_constraintTop_toBottomOf="@+id/iv_aston_welcome_bottom_barrier" />
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/cg_offices"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        app:layout_constraintLeft_toRightOf="@+id/iv_aston_welcome_right_barrier"
-        app:layout_constraintRight_toLeftOf="@+id/gl_margin_right_barrier"
-        app:layout_constraintTop_toBottomOf="@+id/tv_offices">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_moscow"
-            style="@style/MenuChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/moscow" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_minsk"
-            style="@style/MenuChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/minsk" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_spb"
-            style="@style/MenuChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/saint_petersburg" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_rnd"
-            style="@style/MenuChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/rostov_on_don" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_kazan"
-            style="@style/MenuChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/kazan" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_almaty"
-            style="@style/MenuChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/almaty" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_gomel"
-            style="@style/MenuChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gomel" />
-
-    </com.google.android.material.chip.ChipGroup>
-
-    <Button
-        android:id="@+id/btn_contacts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/contacts"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_jobs"
-        app:layout_constraintEnd_toStartOf="@+id/btn_jobs"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/iv_aston_welcome_right_barrier"
-        app:layout_constraintTop_toTopOf="@+id/btn_jobs" />
-
-    <Button
-        android:id="@+id/btn_jobs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/jobs"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_gallery"
-        app:layout_constraintEnd_toStartOf="@+id/btn_gallery"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_contacts"
-        app:layout_constraintTop_toTopOf="@+id/btn_gallery" />
-
-    <Button
-        android:id="@+id/btn_gallery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gallery"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_jobs"
-        app:layout_constraintTop_toBottomOf="@+id/cg_offices" />
-
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_bottom_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="tv_offices,cg_offices,btn_gallery,btn_contacts,btn_jobs"/>
+        android:layout_height="wrap_content" />
 
     <ProgressBar
         android:id="@+id/progress_circular"

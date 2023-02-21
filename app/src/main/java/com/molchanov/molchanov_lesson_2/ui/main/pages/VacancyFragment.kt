@@ -26,8 +26,6 @@ class VacancyFragment() : BaseFragment() {
     ): View {
         _binding = FragmentVacancyBinding.inflate(inflater, container, false)
 
-        Log.v("@@@", "VacancyFragment")
-
         return binding.root
     }
 }

@@ -13,16 +13,14 @@ import androidx.fragment.app.FragmentManager
 class Router(private val fragmentManager: FragmentManager): IRouter {
 
     override fun addFragment(fragmentRepId: Int, fragment: Fragment, tag: String) {
-        Log.v("@@@", "addFragment")
+
         val oldFragment = fragmentManager.findFragmentByTag(tag)
 
         if (oldFragment == null) {
-            Log.v("@@@", "oldFragment == null")
             fragmentManager.beginTransaction()
                 .add(fragmentRepId, fragment, tag)
                 .commit()
         } else {
-            Log.v("@@@", "oldFragment!!!")
             fragmentManager.beginTransaction()
                 .replace(fragmentRepId, oldFragment, tag)
                 .commit()
@@ -30,16 +28,14 @@ class Router(private val fragmentManager: FragmentManager): IRouter {
     }
 
     override fun replaceFragment(fragmentRepId: Int, fragment: Fragment, tag: String) {
-        Log.v("@@@", "replaceFragment")
+
         val oldFragment = fragmentManager.findFragmentByTag(tag)
 
         if (oldFragment == null) {
-            Log.v("@@@", "oldFragment == null")
             fragmentManager.beginTransaction()
                 .replace(fragmentRepId, fragment, tag)
                 .commit()
         } else {
-            Log.v("@@@", "oldFragment!!!")
             fragmentManager.beginTransaction()
                 .replace(fragmentRepId, oldFragment, tag)
                 .commit()
