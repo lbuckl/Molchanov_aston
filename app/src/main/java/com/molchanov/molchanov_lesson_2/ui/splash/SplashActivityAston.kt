@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.view.Gravity
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.molchanov.molchanov_lesson_2.R
 import com.molchanov.molchanov_lesson_2.databinding.ActivityMainBinding

@@ -48,4 +48,10 @@
         <item name="android:textStyle">italic</item>
     </style>
 
+    <!-- Стили Login Fragment -->
+    <!-- Стили Splash Activity -->
+    <style name="LoginFragmentEnterButtonStyle" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:textSize">20sp</item>
+    </style>
+
 </resources>

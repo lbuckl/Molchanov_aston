@@ -17,4 +17,9 @@
     <string name="jobs">Вакансии</string>
     <string name="gallery">Галерея</string>
     <string name="aston_intensive_splash_text">Aston интенсив \n Молчанов Вадим</string>
+    <string name="entrance">Вход</string>
+    <string name="name">Имя</string>
+    <string name="password">Пароль</string>
+    <string name="enter">Войти</string>
+    <string name="wrong_pass">Не верный логин или пароль</string>
 </resources>

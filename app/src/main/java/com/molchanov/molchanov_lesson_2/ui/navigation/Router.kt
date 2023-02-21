@@ -20,7 +20,6 @@ class Router(private val fragmentManager: FragmentManager): IRouter {
             Log.v("@@@", "oldFragment == null")
             fragmentManager.beginTransaction()
                 .add(fragmentRepId, fragment, tag)
-                .addToBackStack(tag)
                 .commit()
         } else {
             Log.v("@@@", "oldFragment!!!")

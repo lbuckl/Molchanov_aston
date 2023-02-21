@@ -21,4 +21,9 @@
     <string name="jobs">Jobs</string>
     <string name="gallery">Gallery</string>
     <string name="aston_intensive_splash_text">Aston intensive \n Molchanov Vadim</string>
+    <string name="entrance">Entrance</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="enter">Enter</string>
+    <string name="wrong_pass">Wrong login or password</string>
 </resources>
