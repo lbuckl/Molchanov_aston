@@ -1,29 +1,30 @@
-package com.molchanov.molchanov_lesson_2
+package com.molchanov.molchanov_lesson_2.ui.splash
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.view.View
-import android.view.animation.CycleInterpolator
-import androidx.transition.Fade
-import androidx.transition.TransitionManager
+import androidx.appcompat.app.AppCompatActivity
+import com.molchanov.molchanov_lesson_2.R
+import com.molchanov.molchanov_lesson_2.databinding.ActivityMainBinding
 import com.molchanov.molchanov_lesson_2.databinding.ActivitySplashBinding
+import com.molchanov.molchanov_lesson_2.ui.base.BaseActivity
+import com.molchanov.molchanov_lesson_2.ui.main.MainActivity
+import com.molchanov.molchanov_lesson_2.ui.navigation.Router
 import kotlinx.coroutines.*
 
 @SuppressLint("CustomSplashScreen")
-class SplashActivityAston : AppCompatActivity() {
-
-    private lateinit var binding: ActivitySplashBinding
+class SplashActivityAston : BaseActivity<ActivitySplashBinding>() {
 
     private val coroutine = CoroutineScope(Dispatchers.Main)
 
-    private val animationDelay = 2000L
-    private val startDelay = 500L
+    private var router: Router? = null
+
+    private val animationDelay = 500L
+    private val startDelay = 100L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +32,14 @@ class SplashActivityAston : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+    }
 
+    override fun getViewBinding() = ActivitySplashBinding.inflate(layoutInflater)
+
+    override fun addMainFragment() {
         showSplash()
+
+        router = Router(supportFragmentManager)
     }
 
     /**
@@ -75,7 +82,7 @@ class SplashActivityAston : AppCompatActivity() {
 
             delay(startDelay)
 
-            startActivity(Intent(this@SplashActivityAston, MainActivity::class.java))
+            showLoginFragment()
         }
     }
 
@@ -100,6 +107,16 @@ class SplashActivityAston : AppCompatActivity() {
             }
         }
         return result
+    }
+
+    private fun showLoginFragment(){
+        binding.textView.visibility = View.GONE
+        binding.imageView.visibility = View.GONE
+
+        router!!.addFragment(
+            R.id.splash_container,
+            LoginFragment.instance,
+            LoginFragment.FRAGMENT_TAG)
     }
 
     override fun onDestroy() {

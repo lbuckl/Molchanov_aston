@@ -1,15 +1,15 @@
-package com.molchanov.molchanov_lesson_2.base
+package com.molchanov.molchanov_lesson_2.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.molchanov.molchanov_lesson_2.databinding.ActivityMainBinding
+import androidx.viewbinding.ViewBinding
 
-abstract class BaseActivity: AppCompatActivity() {
+abstract class BaseActivity<T: ViewBinding>: AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    lateinit var binding: T
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = getViewBinding()
 
         super.onCreate(savedInstanceState)
 
@@ -17,6 +17,8 @@ abstract class BaseActivity: AppCompatActivity() {
 
         setMainFragment(savedInstanceState)
     }
+
+    abstract fun getViewBinding(): T
 
     /**
      * Установка базового фрагмента в контейнер при запуске приложения

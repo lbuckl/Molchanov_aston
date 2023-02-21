@@ -1,11 +1,13 @@
-package com.molchanov.molchanov_lesson_2
+package com.molchanov.molchanov_lesson_2.ui.main.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.molchanov.molchanov_lesson_2.base.BaseFragment
+import com.molchanov.molchanov_lesson_2.R
+import com.molchanov.molchanov_lesson_2.ui.base.BaseFragment
 import com.molchanov.molchanov_lesson_2.databinding.FragmentAstonMainBinding
+import com.molchanov.molchanov_lesson_2.loadImageFromUrl
 import java.util.*
 
 /**
@@ -15,6 +17,7 @@ class AstonMainFragment() : BaseFragment() {
 
     companion object {
         val instance = AstonMainFragment()
+        const val FRAGMENT_TAG = "AstonMainFragment"
     }
 
     override val binding: FragmentAstonMainBinding
