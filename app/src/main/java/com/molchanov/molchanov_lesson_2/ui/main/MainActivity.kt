@@ -39,10 +39,13 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
 
     override fun addMainFragment() {
         router = Router(supportFragmentManager)
+
         router?.addFragment(
             binding.container.id,
             AstonMainFragment.instance,
             AstonMainFragment.FRAGMENT_TAG)
+
+        this.supportActionBar?.title = resources.getString(R.string.about_us)
     }
 
     private fun initMenuListener(){
@@ -57,6 +60,8 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
                             binding.container.id,
                             AstonMainFragment.instance,
                             AstonMainFragment.FRAGMENT_TAG)
+
+                        this.supportActionBar?.title = resources.getString(R.string.about_us)
                     }
                     menu.findItem(R.id.bv_item_jobs) -> {
                         lastMenuItemId = R.id.bv_item_jobs
@@ -66,6 +71,8 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
                             VacancyFragment.instance,
                             VacancyFragment.FRAGMENT_TAG
                         )
+
+                        this.supportActionBar?.title = resources.getString(R.string.jobs)
                     }
                     menu.findItem(R.id.bv_item_offices) -> {
                         lastMenuItemId = R.id.bv_item_offices
@@ -75,6 +82,8 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
                             OfficesFragment.instance,
                             OfficesFragment.FRAGMENT_TAG
                         )
+
+                        this.supportActionBar?.title = resources.getString(R.string.offices)
                     }
                 }
 

@@ -1,11 +1,13 @@
 package com.molchanov.molchanov_lesson_2.ui.splash
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import com.google.android.material.snackbar.Snackbar
 import com.molchanov.molchanov_lesson_2.R
 import com.molchanov.molchanov_lesson_2.databinding.FragmentLoginBinding
@@ -35,16 +37,21 @@ class LoginFragment : BaseFragment() {
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
-        //initButtonEnter()
-        startActivity(Intent(requireContext(), MainActivity::class.java))
+        initPasswordChecker()
+
+        initButtonEnter()
+        //startActivity(Intent(requireContext(), MainActivity::class.java))
 
         return binding.root
     }
 
+    /**
+     * Работа кнопки Войти во фрагменте
+     */
     private fun initButtonEnter(){
         with(binding){
-            btnEnter.setOnClickListener { btn->
 
+            btnEnter.setOnClickListener { btn->
                 if (etLogin.text.toString() == login && etPassword.text.toString() == pass){
 
                     startActivity(Intent(requireContext(), MainActivity::class.java))
@@ -58,6 +65,36 @@ class LoginFragment : BaseFragment() {
                         Snackbar.LENGTH_SHORT)
                         .setAnchorView(binding.btnEnter)
                         .show()
+                }
+            }
+
+            btnEnter.isClickable = false
+        }
+    }
+
+    /**
+     * Функция мутит и отображает кнопку
+     * если количество символов меньше 5 или больше 20
+     */
+    private fun initPasswordChecker(){
+        with(binding){
+            tilPassword.counterTextColor = ColorStateList.valueOf(Color.RED)
+            tilPassword.setHelperTextColor(ColorStateList.valueOf(Color.RED))
+
+            etPassword.addTextChangedListener {
+                it?.let { text ->
+                    if (text.length in 5..20){
+                        btnEnter.alpha = 1.0F
+                        btnEnter.isClickable = true
+                        tilPassword.counterTextColor = ColorStateList.valueOf(Color.BLACK)
+                        tilPassword.setHelperTextColor(ColorStateList.valueOf(Color.BLACK))
+                    }
+                    else {
+                        btnEnter.alpha = 0.5F
+                        btnEnter.isClickable = false
+                        tilPassword.counterTextColor = ColorStateList.valueOf(Color.RED)
+                        tilPassword.setHelperTextColor(ColorStateList.valueOf(Color.RED))
+                    }
                 }
             }
         }

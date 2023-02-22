@@ -119,6 +119,8 @@ class SplashActivityAston : BaseActivity<ActivitySplashBinding>() {
             R.id.splash_container,
             LoginFragment.instance,
             LoginFragment.FRAGMENT_TAG)
+
+        this.supportActionBar?.title = resources.getString(R.string.autorization)
     }
 
     override fun onDestroy() {

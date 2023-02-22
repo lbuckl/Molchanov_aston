@@ -32,7 +32,6 @@ class AstonMainFragment() : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAstonMainBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 

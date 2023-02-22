@@ -4,11 +4,13 @@
 
     <string name="aston_intensive_splash_text">Aston intensive \n Molchanov Vadim</string>
 
+    <string name="autorization">Authorization</string>
     <string name="entrance">Entrance</string>
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="enter">Enter</string>
     <string name="wrong_pass">Wrong login or password</string>
+    <string name="auth_pass_minimum_chars">minimum 5 chars</string>
 
     <string name="tv_aston_card_primary">IT solutions for business development</string>
     <string name="tv_aston_card_secondary">Software development</string>
@@ -37,4 +39,5 @@
     <!-- Content description -->
     <string name="iv_welcome" translatable="false">iv_welcome</string>
     <string name="aston_icon" translatable="false">aston_icon</string>
+
 </resources>

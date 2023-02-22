@@ -4,11 +4,13 @@
 
     <string name="aston_intensive_splash_text">Aston интенсив \n Молчанов Вадим</string>
 
+    <string name="autorization">Авторизация</string>
     <string name="entrance">Вход</string>
     <string name="name">Имя</string>
     <string name="password">Пароль</string>
     <string name="enter">Войти</string>
     <string name="wrong_pass">Не верный логин или пароль</string>
+    <string name="auth_pass_minimum_chars">минимум 5 символов</string>
 
     <string name="tv_aston_card_primary">ИТ-решения для развития бизнеса</string>
     <string name="tv_aston_card_secondary">Разработка програмнного обеспечения</string>
@@ -27,9 +29,10 @@
 
     <string name="jobs">Вакансии</string>
     <string name="backend_developer">Бэкэнд разработчик</string>
-    <string name="backend_developer_description">Язык: Java \n Опыт: от 3 лет</string>
+    <string name="backend_developer_description">Язык: Java \nОпыт: от 3 лет</string>
     <string name="frontend_developer">Фронтенд разработчик</string>
     <string name="frontend_developer_description">Lang: JavaScript \nExp: from 3 years</string>
     <string name="android_developer">Андроид разработчик</string>
     <string name="android_developer_description">Lang: Java/Kotlin \nExp: from 3 years</string>
+
 </resources>
