@@ -37,10 +37,10 @@ class LoginFragment : BaseFragment() {
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
-        initPasswordChecker()
+        //initPasswordChecker()
 
-        initButtonEnter()
-        //startActivity(Intent(requireContext(), MainActivity::class.java))
+        //initButtonEnter()
+        startActivity(Intent(requireContext(), MainActivity::class.java))
 
         return binding.root
     }

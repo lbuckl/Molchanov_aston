@@ -26,6 +26,18 @@
     <string name="gomel">Gomel</string>
     <string name="minsk">Minsk</string>
     <string name="contacts">Contacts</string>
+    <string name="moscow_header">Moscow, Russia</string>
+    <string name="moscow_info">Perenesenskaya naberejnaya 6/2 \n BC "Imperial Tower", gate 3, floor 53, office 13"</string>
+    <string name="kazan_header">Kazan, Russia</string>
+    <string name="kazan_info">N.Ershov st. 76/1 office 213"</string>
+    <string name="rostov_on_don_header">Rostov-on_Don, Russia</string>
+    <string name="rostov_on_don_info">Tekucheva st. 246 floor 3"</string>
+    <string name="saint_petersburg_header">Saint Petersburg, Russia</string>
+    <string name="saint_petersburg_info">Pr. Vladimirsky 23 \n BC "Renaissance hall, floor 8 , office 801"</string>
+    <string name="minsk_header">Minsk, Belarus</string>
+    <string name="minsk_info">Pr. Pobediteley 7A"</string>
+    <string name="gomel_header">Gomel, Belarus</string>
+    <string name="gomel_info">Sovetskaya st. 41B"</string>
 
     <string name="jobs">Jobs</string>
     <string name="backend_developer">Backend developer</string>

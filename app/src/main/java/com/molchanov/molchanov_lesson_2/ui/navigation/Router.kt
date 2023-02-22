@@ -1,5 +1,6 @@
 package com.molchanov.molchanov_lesson_2.ui.navigation
 
+import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -38,6 +39,22 @@ class Router(private val fragmentManager: FragmentManager): IRouter {
         } else {
             fragmentManager.beginTransaction()
                 .replace(fragmentRepId, oldFragment, tag)
+                .commit()
+        }
+    }
+
+    fun replaceFragmentWithMessage(fragmentRepId: Int, fragment: Fragment, tag: String,
+                                       message: Bundle){
+
+        val oldFragment = fragmentManager.findFragmentByTag(tag)
+
+        if (oldFragment == null) {
+            fragmentManager.beginTransaction()
+                .replace(fragmentRepId, fragment::class.java, message, tag)
+                .commit()
+        } else {
+            fragmentManager.beginTransaction()
+                .replace(fragmentRepId, oldFragment::class.java, message, tag)
                 .commit()
         }
     }

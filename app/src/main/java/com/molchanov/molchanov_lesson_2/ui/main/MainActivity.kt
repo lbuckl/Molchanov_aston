@@ -15,9 +15,16 @@ import com.molchanov.molchanov_lesson_2.ui.navigation.Router
 
 class MainActivity: BaseActivity<ActivityMainBinding>() {
 
-    private var router: Router? = null
+    companion object{
+        const val ROUTER_TAG = "ROUTER_TAG"
+
+        var router: Router? = null
+    }
+
+    //private var router: Router? = null
 
     private val lastMenuItemSaveName = "Last_item_id"
+
     private var lastMenuItemId = -1
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -55,7 +62,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
                 when(item){
                     menu.findItem(R.id.bv_item_about_us) -> {
                         lastMenuItemId = R.id.bv_item_about_us
-                        Log.v("@@@", "AstonMainFragment ${router == null}")
+
                         router?.replaceFragment(
                             binding.container.id,
                             AstonMainFragment.instance,
@@ -65,7 +72,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
                     }
                     menu.findItem(R.id.bv_item_jobs) -> {
                         lastMenuItemId = R.id.bv_item_jobs
-                        Log.v("@@@", "VacancyFragment ${router == null}")
+
                         router?.replaceFragment(
                             binding.container.id,
                             VacancyFragment.instance,
@@ -76,7 +83,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
                     }
                     menu.findItem(R.id.bv_item_offices) -> {
                         lastMenuItemId = R.id.bv_item_offices
-                        Log.v("@@@", "OfficesFragment ${router == null}")
+
                         router?.replaceFragment(
                             binding.container.id,
                             OfficesFragment.instance,

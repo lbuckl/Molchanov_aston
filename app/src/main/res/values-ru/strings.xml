@@ -26,6 +26,18 @@
     <string name="gomel">Гомель</string>
     <string name="minsk">Минск</string>
     <string name="contacts">Контакты</string>
+    <string name="moscow_header">Москва, Россия</string>
+    <string name="moscow_info">Перенесенская набережная 6/2 \n БЦ "Башня Империя", подъезд 3, этаж 53, оффис 13"</string>
+    <string name="kazan_header">Казань, Россия</string>
+    <string name="kazan_info">Улица Н. Ершова 76/1 оффис 213"</string>
+    <string name="rostov_on_don_header">Ростов-на-Дону, Россия</string>
+    <string name="rostov_on_don_info">ул.Текучева 246 этаж 3"</string>
+    <string name="saint_petersburg_header">Санкт-Петербург, Россия</string>
+    <string name="saint_petersburg_info">Владимирский проспект 23 \n BC "Ренесанс холл, этаж 8 , оффис 801"</string>
+    <string name="minsk_header">Минск, Беларусь</string>
+    <string name="minsk_info">Проспект победителей 7А"</string>
+    <string name="gomel_header">Гомель, Беларусь</string>
+    <string name="gomel_info">Ул. Советская 41Б"</string>
 
     <string name="jobs">Вакансии</string>
     <string name="backend_developer">Бэкэнд разработчик</string>
