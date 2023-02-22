@@ -1,17 +1,17 @@
 package com.molchanov.molchanov_lesson_2.ui.main.pages
 
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import com.molchanov.molchanov_lesson_2.R
 import com.molchanov.molchanov_lesson_2.databinding.FragmentOfficesBinding
 import com.molchanov.molchanov_lesson_2.ui.base.BaseFragment
 import com.molchanov.molchanov_lesson_2.ui.main.MainActivity
 
+/**
+ * Фрагмент отображения списка офисов и информации о них
+ */
 class OfficesFragment : BaseFragment() {
 
     companion object {
@@ -24,7 +24,7 @@ class OfficesFragment : BaseFragment() {
     override val binding: FragmentOfficesBinding
         get() = _binding as FragmentOfficesBinding
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

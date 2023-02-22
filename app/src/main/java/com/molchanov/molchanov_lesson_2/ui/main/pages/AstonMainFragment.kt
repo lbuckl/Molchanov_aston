@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.molchanov.molchanov_lesson_2.R
-import com.molchanov.molchanov_lesson_2.ui.base.BaseFragment
 import com.molchanov.molchanov_lesson_2.databinding.FragmentAstonMainBinding
 import com.molchanov.molchanov_lesson_2.loadImageFromUrl
+import com.molchanov.molchanov_lesson_2.ui.base.BaseFragment
 import java.util.*
 
 /**

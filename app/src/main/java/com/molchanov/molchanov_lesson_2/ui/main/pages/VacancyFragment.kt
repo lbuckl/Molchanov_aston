@@ -1,14 +1,15 @@
 package com.molchanov.molchanov_lesson_2.ui.main.pages
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.molchanov.molchanov_lesson_2.databinding.FragmentVacancyBinding
 import com.molchanov.molchanov_lesson_2.ui.base.BaseFragment
 
-
+/**
+ * Фрагмент для отбражения текущийх вакансий
+ */
 class VacancyFragment() : BaseFragment() {
 
     companion object {

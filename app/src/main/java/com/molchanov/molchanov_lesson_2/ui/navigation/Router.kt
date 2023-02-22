@@ -1,7 +1,6 @@
 package com.molchanov.molchanov_lesson_2.ui.navigation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 

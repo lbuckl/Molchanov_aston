@@ -1,10 +1,6 @@
 package com.molchanov.molchanov_lesson_2.ui.main
 
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
-import android.view.View
-import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
 import com.molchanov.molchanov_lesson_2.R
 import com.molchanov.molchanov_lesson_2.databinding.ActivityMainBinding
 import com.molchanov.molchanov_lesson_2.ui.base.BaseActivity
@@ -16,12 +12,8 @@ import com.molchanov.molchanov_lesson_2.ui.navigation.Router
 class MainActivity: BaseActivity<ActivityMainBinding>() {
 
     companion object{
-        const val ROUTER_TAG = "ROUTER_TAG"
-
         var router: Router? = null
     }
-
-    //private var router: Router? = null
 
     private val lastMenuItemSaveName = "Last_item_id"
 
@@ -29,11 +21,16 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
+
         lastMenuItemId = savedInstanceState.getInt(lastMenuItemSaveName, -1)
+
+        router = Router(supportFragmentManager)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = getViewBinding()
+
+        router = Router(supportFragmentManager)
 
         super.onCreate(savedInstanceState)
 
@@ -45,7 +42,6 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
     override fun getViewBinding() = ActivityMainBinding.inflate(layoutInflater)
 
     override fun addMainFragment() {
-        router = Router(supportFragmentManager)
 
         router?.addFragment(
             binding.container.id,
@@ -55,6 +51,9 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
         this.supportActionBar?.title = resources.getString(R.string.about_us)
     }
 
+    /**
+     * Инициализация BottomNavigationView
+     */
     private fun initMenuListener(){
         binding.bnvMain.menu.let { menu ->
 
