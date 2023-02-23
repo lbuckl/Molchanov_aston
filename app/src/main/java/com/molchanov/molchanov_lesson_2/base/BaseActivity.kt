@@ -1,4 +1,4 @@
-package com.molchanov.molchanov_lesson_2
+package com.molchanov.molchanov_lesson_2.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
