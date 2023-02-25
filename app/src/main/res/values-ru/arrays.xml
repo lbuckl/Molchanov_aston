@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="vacancy_array">
+        <item>Бэкэнд разработчик</item>
+        <item>Язык: Java \nОпыт: от 5 лет</item>
+        <item>Фронтенд разработчик</item>
+        <item>Язык: JavaScript \nОпыт: от 3 yлет</item>
+        <item>Андроид разработчик</item>
+        <item>Язык: Java/Kotlin \nОпыт: от 3 лет</item>
+        <item>Java разработчик intern</item>
+        <item>Язык: Java \nОпыт: от 0 лет, наличие учебных проектов</item>
+        <item>Фронтенд разработчик</item>
+        <item>Язык: JavaScript \nОпыт: от 0 лет, наличие учебных проектов</item>
+        <item>Андроид разработчик</item>
+        <item>Язык: Java/Kotlin \nОпыт: от 0 лет, наличие учебных проектов</item>
+        <item>Auto tester</item>
+        <item>Язык: Java, JavaScript \nОпыт: от 2 лет</item>
+        <item>Auto tester intern</item>
+        <item>Язык: Java \nОпыт: без опыта, наличие учебных проектов</item>
+        <item>Auto tester intern</item>
+        <item>Язык: JavaScript \nОпыт: без опыта, наличие учебных проектов</item>
+        <item>Project manager</item>
+        <item>Опыт: от 2 лет</item>
+    </array>
+
+    <array name="offices_location_array">
+        <item>Москва, Россия</item>
+        <item>Перенесенская набережная 6/2 \n БЦ "Башня Империя", подъезд 3, этаж 53, оффис 13"</item>
+        <item>Казань, Россия</item>
+        <item>Улица Н. Ершова 76/1 оффис 213"</item>
+        <item>Ростов-на-Дону, Россия</item>
+        <item>ул.Текучева 246 этаж 3"</item>
+        <item>Санкт-Петербург, Россия</item>
+        <item>Владимирский проспект 23 \n BC "Ренесанс холл, этаж 8 , оффис 801"</item>
+        <item>Минск, Беларусь</item>
+        <item>Проспект победителей 7А"</item>
+        <item>Гомель, Беларусь</item>
+        <item>Ул. Советская 41Б"</item>
+    </array>
+</resources>

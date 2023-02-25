@@ -10,7 +10,7 @@ import com.molchanov.molchanov_lesson_2.ui.base.BaseFragment
 /**
  * Фрагмент для отбражения текущийх вакансий
  */
-class VacancyFragment() : BaseFragment() {
+class VacancyFragment : BaseFragment() {
 
     companion object {
         val instance = VacancyFragment()

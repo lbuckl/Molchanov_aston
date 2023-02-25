@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="vacancy_array">
+        <item>Backend developer</item>
+        <item>Lang: Java \nExp: from 5 years</item>
+        <item>Frontend developer</item>
+        <item>Lang: JavaScript \nExp: from 3 years</item>
+        <item>Android developer</item>
+        <item>Lang: Java/Kotlin \nExp: from 3 years</item>
+        <item>Java developer intern</item>
+        <item>Lang: Java \nExp: from 0 years, availability of educational projects</item>
+        <item>Frontend developer</item>
+        <item>Lang: JavaScript \nExp: from 0 years, availability of educational projects</item>
+        <item>Android developer</item>
+        <item>Lang: Java/Kotlin \nExp: from 0 years, availability of educational projects</item>
+        <item>Auto tester</item>
+        <item>Lang: Java,JavaScript \nExp: from 2 years</item>
+        <item>Auto tester intern</item>
+        <item>Lang: Java \nExp: from 0 years, availability of educational projects</item>
+        <item>Auto tester intern</item>
+        <item>Lang: JavaScript \nExp: from 0 years, availability of educational projects</item>
+        <item>Project manager</item>
+        <item>Exp: from 2 years</item>
+    </array>
+
+    <array name="offices_location_array">
+        <item>Moscow, Russia</item>
+        <item>Perenesenskaya naberejnaya 6/2 \n BC "Imperial Tower", gate 3, floor 53, office 13"</item>
+        <item>Kazan, Russia</item>
+        <item>N.Ershov st. 76/1 office 213"</item>
+        <item>Rostov-on_Don, Russia</item>
+        <item>Tekucheva st. 246 floor 3"</item>
+        <item>Saint Petersburg, Russia</item>
+        <item>Pr. Vladimirsky 23 \n BC "Renaissance hall, floor 8 , office 801"</item>
+        <item>Minsk, Belarus</item>
+        <item>Pr. Pobediteley 7A"</item>
+        <item>Gomel, Belarus</item>
+        <item>Sovetskaya st. 41B"</item>
+    </array>
+</resources>

@@ -1,11 +1,17 @@
 package com.molchanov.molchanov_lesson_2.ui.main.pages
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.molchanov.molchanov_lesson_2.R
 import com.molchanov.molchanov_lesson_2.databinding.FragmentOfficesBinding
+import com.molchanov.molchanov_lesson_2.domain.OfficesInfo
+import com.molchanov.molchanov_lesson_2.model.Repository
+import com.molchanov.molchanov_lesson_2.ui.base.AppState
+import com.molchanov.molchanov_lesson_2.ui.base.AstonViewModelFactory
 import com.molchanov.molchanov_lesson_2.ui.base.BaseFragment
 import com.molchanov.molchanov_lesson_2.ui.main.MainActivity
 
@@ -18,6 +24,8 @@ class OfficesFragment : BaseFragment() {
         val instance = OfficesFragment()
         const val FRAGMENT_TAG = "OfficesFragment"
     }
+
+   lateinit var viewModel: OfficesViewModel
 
     private val router = MainActivity.router
 
@@ -32,9 +40,34 @@ class OfficesFragment : BaseFragment() {
     ): View {
         _binding = FragmentOfficesBinding.inflate(inflater, container, false)
 
+        initViewModel()
+
         initChips()
 
         return binding.root
+    }
+
+    private fun initViewModel(){
+        val vmFactory = AstonViewModelFactory().also {
+            it.setRepository(Repository(resources))
+        }
+        //viewModel = ViewModelProvider(this)[OfficesViewModel::class.java]
+        viewModel = ViewModelProvider(this, vmFactory)[OfficesViewModel::class.java]
+        viewModel.getMyLiveData().observe(viewLifecycleOwner){
+            state -> renderData(state)
+        }
+    }
+
+    private fun renderData(state: AppState){
+        when(state){
+            is AppState.Success<*> -> {
+                Log.v("@@@","Success: ${state.data[0]}")
+                //TODO
+            }
+            is AppState.Error -> {
+                //TODO
+            }
+        }
     }
 
     private fun initChips(){
