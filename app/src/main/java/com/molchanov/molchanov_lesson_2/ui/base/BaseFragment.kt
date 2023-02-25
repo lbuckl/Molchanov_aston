@@ -1,4 +1,4 @@
-package com.molchanov.molchanov_lesson_2
+package com.molchanov.molchanov_lesson_2.ui.base
 
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding

@@ -1,10 +1,13 @@
-package com.molchanov.molchanov_lesson_2
+package com.molchanov.molchanov_lesson_2.ui.main.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.molchanov.molchanov_lesson_2.R
 import com.molchanov.molchanov_lesson_2.databinding.FragmentAstonMainBinding
+import com.molchanov.molchanov_lesson_2.loadImageFromUrl
+import com.molchanov.molchanov_lesson_2.ui.base.BaseFragment
 import java.util.*
 
 /**
@@ -14,6 +17,7 @@ class AstonMainFragment() : BaseFragment() {
 
     companion object {
         val instance = AstonMainFragment()
+        const val FRAGMENT_TAG = "AstonMainFragment"
     }
 
     override val binding: FragmentAstonMainBinding
@@ -28,7 +32,6 @@ class AstonMainFragment() : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAstonMainBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -36,8 +39,6 @@ class AstonMainFragment() : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initWelcomeImage()
-
-        initButtons()
     }
 
     /**
@@ -55,33 +56,6 @@ class AstonMainFragment() : BaseFragment() {
         } catch (e: ArrayIndexOutOfBoundsException) {
             e.printStackTrace()
             binding.ivAstonWelcome.loadImageFromUrl(R.drawable.pic_aston_welcome)
-        }
-    }
-
-    /**
-     * Функция инициализирует кликкеры дял кнопок
-     */
-    private fun initButtons() {
-        with(binding) {
-
-            btnContacts.setOnClickListener {
-                loading()
-            }
-
-            btnGallery.setOnClickListener {
-                loading()
-            }
-
-            btnJobs.setOnClickListener {
-                loading()
-            }
-        }
-    }
-
-    private fun loading(){
-        with(binding){
-            groupBottomInfo.visibility = View.GONE
-            progressCircular.visibility = View.VISIBLE
         }
     }
 }

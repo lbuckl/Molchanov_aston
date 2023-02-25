@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Aston интенсив</string>
+
+    <string name="aston_intensive_splash_text">Aston интенсив \n Молчанов Вадим</string>
+
+    <string name="autorization">Авторизация</string>
+    <string name="entrance">Вход</string>
+    <string name="name">Имя</string>
+    <string name="password">Пароль</string>
+    <string name="enter">Войти</string>
+    <string name="wrong_pass">Не верный логин или пароль</string>
+    <string name="auth_pass_minimum_chars">минимум 5 символов</string>
+
     <string name="tv_aston_card_primary">ИТ-решения для развития бизнеса</string>
     <string name="tv_aston_card_secondary">Разработка програмнного обеспечения</string>
     <string name="about_us">О нас:</string>
     <string name="about_us_description">Эстон - компания по разработке ПО с полным циклом услуг. Уже 15 лет мы помогаем заказчикам повсему миру трансфорировать бизнес, создавая эффективные мобильные и десктопные решения</string>
+
     <string name="offices">Оффисы</string>
     <string name="moscow">Москва</string>
     <string name="saint_petersburg">Санкт-Петербург</string>
@@ -14,6 +26,25 @@
     <string name="gomel">Гомель</string>
     <string name="minsk">Минск</string>
     <string name="contacts">Контакты</string>
+    <string name="moscow_header">Москва, Россия</string>
+    <string name="moscow_info">Перенесенская набережная 6/2 \n БЦ "Башня Империя", подъезд 3, этаж 53, оффис 13"</string>
+    <string name="kazan_header">Казань, Россия</string>
+    <string name="kazan_info">Улица Н. Ершова 76/1 оффис 213"</string>
+    <string name="rostov_on_don_header">Ростов-на-Дону, Россия</string>
+    <string name="rostov_on_don_info">ул.Текучева 246 этаж 3"</string>
+    <string name="saint_petersburg_header">Санкт-Петербург, Россия</string>
+    <string name="saint_petersburg_info">Владимирский проспект 23 \n BC "Ренесанс холл, этаж 8 , оффис 801"</string>
+    <string name="minsk_header">Минск, Беларусь</string>
+    <string name="minsk_info">Проспект победителей 7А"</string>
+    <string name="gomel_header">Гомель, Беларусь</string>
+    <string name="gomel_info">Ул. Советская 41Б"</string>
+
     <string name="jobs">Вакансии</string>
-    <string name="gallery">Галерея</string>
+    <string name="backend_developer">Бэкэнд разработчик</string>
+    <string name="backend_developer_description">Язык: Java \nОпыт: от 3 лет</string>
+    <string name="frontend_developer">Фронтенд разработчик</string>
+    <string name="frontend_developer_description">Lang: JavaScript \nExp: from 3 years</string>
+    <string name="android_developer">Андроид разработчик</string>
+    <string name="android_developer_description">Lang: Java/Kotlin \nExp: from 3 years</string>
+
 </resources>

@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Aston intensive</string>
+
+    <string name="aston_intensive_splash_text">Aston intensive \n Molchanov Vadim</string>
+
+    <string name="autorization">Authorization</string>
+    <string name="entrance">Entrance</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="enter">Enter</string>
+    <string name="wrong_pass">Wrong login or password</string>
+    <string name="auth_pass_minimum_chars">minimum 5 chars</string>
+
     <string name="tv_aston_card_primary">IT solutions for business development</string>
     <string name="tv_aston_card_secondary">Software development</string>
-
-    <!-- Content description -->
-    <string name="iv_welcome" translatable="false">iv_welcome</string>
-    <string name="aston_icon" translatable="false">aston_icon</string>
     <string name="about_us">About us:</string>
     <string name="about_us_description">Aston is a full service software development company. For 15 years we have been helping customers around the world transform their business by creating effective mobile and desktop solutions</string>
+
     <string name="offices">Offices</string>
     <string name="moscow">Moscow</string>
     <string name="saint_petersburg">Saint Petersburg</string>
@@ -18,6 +26,30 @@
     <string name="gomel">Gomel</string>
     <string name="minsk">Minsk</string>
     <string name="contacts">Contacts</string>
+    <string name="moscow_header">Moscow, Russia</string>
+    <string name="moscow_info">Perenesenskaya naberejnaya 6/2 \n BC "Imperial Tower", gate 3, floor 53, office 13"</string>
+    <string name="kazan_header">Kazan, Russia</string>
+    <string name="kazan_info">N.Ershov st. 76/1 office 213"</string>
+    <string name="rostov_on_don_header">Rostov-on_Don, Russia</string>
+    <string name="rostov_on_don_info">Tekucheva st. 246 floor 3"</string>
+    <string name="saint_petersburg_header">Saint Petersburg, Russia</string>
+    <string name="saint_petersburg_info">Pr. Vladimirsky 23 \n BC "Renaissance hall, floor 8 , office 801"</string>
+    <string name="minsk_header">Minsk, Belarus</string>
+    <string name="minsk_info">Pr. Pobediteley 7A"</string>
+    <string name="gomel_header">Gomel, Belarus</string>
+    <string name="gomel_info">Sovetskaya st. 41B"</string>
+
     <string name="jobs">Jobs</string>
-    <string name="gallery">Gallery</string>
+    <string name="backend_developer">Backend developer</string>
+    <string name="backend_developer_description">Lang: Java \nExp: from 3 years</string>
+    <string name="frontend_developer">Frontend developer</string>
+    <string name="frontend_developer_description">Lang: JavaScript \nExp: from 3 years</string>
+    <string name="android_developer">Android developer</string>
+    <string name="android_developer_description">Lang: Java/Kotlin \nExp: from 3 years</string>
+
+
+    <!-- Content description -->
+    <string name="iv_welcome" translatable="false">iv_welcome</string>
+    <string name="aston_icon" translatable="false">aston_icon</string>
+
 </resources>
