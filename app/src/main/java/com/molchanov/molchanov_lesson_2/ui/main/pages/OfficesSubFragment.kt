@@ -10,7 +10,7 @@ import com.molchanov.molchanov_lesson_2.ui.base.BaseFragment
 /**
  * Фрагмент для отображения информации об офисе Aston
  */
-class OfficesSubFragment: BaseFragment() {
+class OfficesSubFragment : BaseFragment() {
 
     companion object {
         val instance = OfficesSubFragment()
@@ -33,13 +33,13 @@ class OfficesSubFragment: BaseFragment() {
         return binding.root
     }
 
-    private fun initFragment(){
+    private fun initFragment() {
         try {
             arguments?.getStringArray(BUNDLE_TAG)?.also {
                 binding.tvCity.text = it[0]
                 binding.tvInfo.text = it[1]
             }
-        }catch (e: java.lang.IndexOutOfBoundsException){
+        } catch (e: java.lang.IndexOutOfBoundsException) {
             e.printStackTrace()
         }
     }

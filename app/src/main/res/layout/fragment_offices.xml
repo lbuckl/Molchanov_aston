@@ -7,66 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.pages.OfficesFragment">
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/cg_offices"
-        android:layout_width="0dp"
-        android:visibility="gone"
-        android:layout_height="wrap_content"
-        app:singleSelection="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_moscow"
-            style="@style/MenuChipStyle"
-            android:clickable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/moscow" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_kazan"
-            style="@style/MenuChipStyle"
-            android:clickable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/kazan" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_rnd"
-            style="@style/MenuChipStyle"
-            android:clickable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/rostov_on_don" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_minsk"
-            style="@style/MenuChipStyle"
-            android:clickable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/minsk" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_spb"
-            style="@style/MenuChipStyle"
-            android:clickable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/saint_petersburg" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_offices_gomel"
-            style="@style/MenuChipStyle"
-            android:clickable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gomel" />
-
-    </com.google.android.material.chip.ChipGroup>
-
     <FrameLayout
         android:id="@+id/office_container"
         android:layout_width="match_parent"
@@ -74,12 +14,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cg_offices" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_offices_list" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_offices_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.67"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

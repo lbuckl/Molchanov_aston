@@ -1,19 +1,32 @@
 package com.molchanov.molchanov_lesson_2.ui.main.pages
 
 import androidx.lifecycle.LiveData
+import com.molchanov.molchanov_lesson_2.domain.OfficesInfo
 import com.molchanov.molchanov_lesson_2.model.IRepository
-import com.molchanov.molchanov_lesson_2.ui.base.AppState
 import com.molchanov.molchanov_lesson_2.ui.base.BaseViewModel
+import com.molchanov.molchanov_lesson_2.ui.base.OfficeAppState
 
-class OfficesViewModel(private val repository: IRepository): BaseViewModel<AppState>() {
+/**
+ * Вью модель фрагмента со списком офистов ASTON
+ */
+class OfficesViewModel(private val repository: IRepository) : BaseViewModel<OfficeAppState>() {
 
-    fun getMyLiveData(): LiveData<AppState>{
+    fun getMyLiveData(): LiveData<OfficeAppState> {
         setData()
         return liveData
     }
 
     private fun setData() {
-        liveData.postValue(AppState.Success(repository.getOfficesInfo()))
+        try {
+            liveData.postValue(OfficeAppState.Success(repository.getOfficesInfo()))
+        }catch (e: java.lang.IndexOutOfBoundsException){
+            e.printStackTrace()
+            liveData.postValue(OfficeAppState.Error("Get data error"))
+        }
+    }
+
+    fun setOfficeInfoData(data: OfficesInfo) {
+        liveData.postValue(OfficeAppState.ClickData(data))
     }
 
 }

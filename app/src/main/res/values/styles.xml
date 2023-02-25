@@ -51,11 +51,11 @@
     </style>
 
     <style name="AstonOfficesPrimaryTextStile" parent="PrimaryTextStile">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
     <style name="AstonOfficesSecondaryTextStile" parent="SecondaryTextStile">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:typeface">monospace</item>
     </style>
     <!-- _________________________________________________________________ -->
@@ -63,13 +63,13 @@
     <!-- Стили Splash Activity -->
     <style name="SplashTextStile">
         <item name="android:textColor">@color/text_invisible</item>
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">32sp</item>
         <item name="android:textStyle">italic</item>
     </style>
 
     <!-- Стили Login Fragment -->
     <style name="LoginFragmentEnterButtonStyle" parent="@style/Widget.MaterialComponents.Button">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
     <!-- _________________________________________________________________ -->

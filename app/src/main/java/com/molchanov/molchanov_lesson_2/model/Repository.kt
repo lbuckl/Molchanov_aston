@@ -7,10 +7,10 @@ import com.molchanov.molchanov_lesson_2.domain.OfficesInfo
 import com.molchanov.molchanov_lesson_2.domain.VacancyInfo
 
 
-class Repository(private val resources: Resources): IRepository {
+class Repository(private val resources: Resources) : IRepository {
 
     override fun getAstonInfo(): AstonInfo {
-        with(resources){
+        with(resources) {
             return AstonInfo(
                 getString(R.string.tv_aston_card_primary),
                 getString(R.string.tv_aston_card_secondary),
@@ -25,11 +25,11 @@ class Repository(private val resources: Resources): IRepository {
         val result = mutableListOf<VacancyInfo>()
         val buf = resources.getStringArray(R.array.vacancy_array)
 
-        for (i in buf.indices step 2){
+        for (i in buf.indices step 2) {
             result.add(
                 VacancyInfo(
                     buf[i],
-                    buf[i+1]
+                    buf[i + 1]
                 )
             )
         }
@@ -43,11 +43,11 @@ class Repository(private val resources: Resources): IRepository {
         val result = mutableListOf<OfficesInfo>()
         val buf = resources.getStringArray(R.array.offices_location_array)
 
-        for (i in buf.indices step 2){
+        for (i in buf.indices step 2) {
             result.add(
                 OfficesInfo(
                     buf[i],
-                    buf[i+1]
+                    buf[i + 1]
                 )
             )
         }

@@ -47,20 +47,22 @@ class SplashActivityAston : BaseActivity<ActivitySplashBinding>() {
     /**
      * Функция отображения текста с анимацией печати
      */
-    private fun showSplash(){
+    private fun showSplash() {
         coroutine.launch {
             delay(startDelay)
 
-            val text = SpannableString(this@SplashActivityAston
-                .getString(R.string.aston_intensive_splash_text))
+            val text = SpannableString(
+                this@SplashActivityAston
+                    .getString(R.string.aston_intensive_splash_text)
+            )
 
-            val printSpeedDelayList = printSpeedDelay(text, animationDelay/text.length)
+            val printSpeedDelayList = printSpeedDelay(text, animationDelay / text.length)
 
 
             try {
-                for (index in text.indices){
+                for (index in text.indices) {
                     text.setSpan(
-                        ForegroundColorSpan(theme.resources.getColor(R.color.black,theme)),
+                        ForegroundColorSpan(theme.resources.getColor(R.color.black, theme)),
                         index, index + 1,
                         Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                     )
@@ -68,12 +70,12 @@ class SplashActivityAston : BaseActivity<ActivitySplashBinding>() {
                     delay(printSpeedDelayList[index])
                     binding.textView.text = text
                 }
-            }catch (e: java.lang.IndexOutOfBoundsException){
+            } catch (e: java.lang.IndexOutOfBoundsException) {
                 e.printStackTrace()
 
-                with(binding.textView){
+                with(binding.textView) {
 
-                    setTextColor(theme.resources.getColor(R.color.black,theme))
+                    setTextColor(theme.resources.getColor(R.color.black, theme))
 
                     this.text = this@SplashActivityAston
                         .getString(R.string.aston_intensive_splash_text)
@@ -100,10 +102,10 @@ class SplashActivityAston : BaseActivity<ActivitySplashBinding>() {
         text.forEach {
 
             if (it in ' '..'@') result.add(defaultDelay * 3)
-            else{
-                result.add(defaultDelay + defaultDelay/delayIndex)
+            else {
+                result.add(defaultDelay + defaultDelay / delayIndex)
 
-                delayIndex ++
+                delayIndex++
 
                 if (delayIndex == 5) delayIndex = 1
             }
@@ -111,14 +113,15 @@ class SplashActivityAston : BaseActivity<ActivitySplashBinding>() {
         return result
     }
 
-    private fun showLoginFragment(){
+    private fun showLoginFragment() {
         binding.textView.visibility = View.GONE
         binding.imageView.visibility = View.GONE
 
         router!!.addFragment(
             R.id.splash_container,
             LoginFragment.instance,
-            LoginFragment.FRAGMENT_TAG)
+            LoginFragment.FRAGMENT_TAG
+        )
 
         this.supportActionBar?.title = resources.getString(R.string.autorization)
     }

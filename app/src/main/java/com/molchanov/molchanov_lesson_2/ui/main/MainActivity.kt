@@ -9,9 +9,9 @@ import com.molchanov.molchanov_lesson_2.ui.main.pages.OfficesFragment
 import com.molchanov.molchanov_lesson_2.ui.main.pages.VacancyFragment
 import com.molchanov.molchanov_lesson_2.ui.navigation.Router
 
-class MainActivity: BaseActivity<ActivityMainBinding>() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
 
-    companion object{
+    companion object {
         var router: Router? = null
     }
 
@@ -46,7 +46,8 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
         router?.addFragment(
             binding.container.id,
             AstonMainFragment.instance,
-            AstonMainFragment.FRAGMENT_TAG)
+            AstonMainFragment.FRAGMENT_TAG
+        )
 
         this.supportActionBar?.title = resources.getString(R.string.about_us)
     }
@@ -54,18 +55,19 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
     /**
      * Инициализация BottomNavigationView
      */
-    private fun initMenuListener(){
+    private fun initMenuListener() {
         binding.bnvMain.menu.let { menu ->
 
             binding.bnvMain.setOnItemSelectedListener { item ->
-                when(item){
+                when (item) {
                     menu.findItem(R.id.bv_item_about_us) -> {
                         lastMenuItemId = R.id.bv_item_about_us
 
                         router?.replaceFragment(
                             binding.container.id,
                             AstonMainFragment.instance,
-                            AstonMainFragment.FRAGMENT_TAG)
+                            AstonMainFragment.FRAGMENT_TAG
+                        )
 
                         this.supportActionBar?.title = resources.getString(R.string.about_us)
                     }

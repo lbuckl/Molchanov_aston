@@ -4,4 +4,6 @@
     <dimen name="margin_text_default">2dp</dimen>
     <dimen name="tv_office_margin_top">4dp</dimen>
     <dimen name="vacancy_card_margin_top">4dp</dimen>
+    <dimen name="office_icon_size">48dp</dimen>
+    <dimen name="rv_office_item_padding_top">6dp</dimen>
 </resources>
