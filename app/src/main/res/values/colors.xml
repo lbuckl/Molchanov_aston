@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="red">#BA1D1D</color>
+    <color name="red_light">#F0C6C6</color>
+    <color name="blue_light">#CADEF3</color>
     <color name="aston_primary">#2987E4</color>
     <color name="text_color_black">#FF000000</color>
     <color name="text_invisible">#00000000</color>

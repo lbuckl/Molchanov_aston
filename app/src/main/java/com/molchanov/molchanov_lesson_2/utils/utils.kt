@@ -12,3 +12,12 @@ fun ImageView.loadImageFromUrl(url: Int) {
         .placeholder(url)
         .into(this)
 }
+
+/**
+ * Функция ищет слово в строке возвращает true, если найдено
+ * @param text - текст для поиска
+ * @param find - слово для поиска
+ */
+fun findWordInTextCount(text: String, find: String): Boolean {
+    return Regex(find, RegexOption.IGNORE_CASE).findAll(text).toList().isNotEmpty()
+}

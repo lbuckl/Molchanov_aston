@@ -1,6 +1,7 @@
 package com.molchanov.molchanov_lesson_2.model
 
 import android.content.res.Resources
+import android.util.Log
 import com.molchanov.molchanov_lesson_2.R
 import com.molchanov.molchanov_lesson_2.domain.AstonInfo
 import com.molchanov.molchanov_lesson_2.domain.OfficesInfo
@@ -47,11 +48,10 @@ class Repository(private val resources: Resources) : IRepository {
             result.add(
                 OfficesInfo(
                     buf[i],
-                    buf[i + 1]
+                    buf[i + 1],
                 )
             )
         }
-
         return result.toList()
 
     }
