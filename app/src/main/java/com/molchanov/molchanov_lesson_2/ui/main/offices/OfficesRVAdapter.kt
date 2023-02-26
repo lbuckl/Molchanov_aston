@@ -1,4 +1,4 @@
-package com.molchanov.molchanov_lesson_2.ui.main.pages
+package com.molchanov.molchanov_lesson_2.ui.main.offices
 
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +15,7 @@ class OfficesRVAdapter(
 ) :
     RecyclerView.Adapter<OfficesRVAdapter.ViewHolder>() {
 
-    private var officeList: List<OfficesInfo> = mutableListOf()
+    private var officeList: List<OfficesInfo> = listOf()
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(data: OfficesInfo) {

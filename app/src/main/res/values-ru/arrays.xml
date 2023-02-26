@@ -1,26 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="vacancy_array">
-        <item>Бэкэнд разработчик</item>
-        <item>Язык: Java \nОпыт: от 5 лет</item>
-        <item>Фронтенд разработчик</item>
-        <item>Язык: JavaScript \nОпыт: от 3 yлет</item>
-        <item>Андроид разработчик</item>
+        <item>Сеньор Бэкэнд разработчик</item>
+        <item>Язык: Java, C++, SQL \nОпыт: от 5 лет</item>
+        <item>Мидл Бэкэнд разработчик</item>
+        <item>Язык: Java,SQL \nОпыт: от 3 лет</item>
+        <item>Джуниор Бэкэнд разработчик</item>
+        <item>Язык: Java \nОпыт: от 3 года</item>
+        <item>Бэкэнд разработчик стажер</item>
+        <item>Язык: Java \nОпыт: без опыта, Наличие учебных проектов</item>
+        <item>Сеньор Фронтенд разработчик</item>
+        <item>Язык: JavaScript \nОпыт: от 5 лет</item>
+        <item>Мидл Фронтенд разработчик</item>
+        <item>Язык: JavaScript \nОпыт: от 3 лет</item>
+        <item>Джуниор Фронтенд разработчик</item>
+        <item>Язык: JavaScript \nОпыт: от 3 года</item>
+        <item>Фронтенд разработчик стажер</item>
+        <item>Язык: JavaScript \nОпыт: без опыта, Наличие учебных проектов</item>
+        <item>Сеньор Андроид разработчик</item>
+        <item>Язык: Java/Kotlin \nОпыт: от 5 лет</item>
+        <item>Мидл Андроид разработчик</item>
         <item>Язык: Java/Kotlin \nОпыт: от 3 лет</item>
-        <item>Java разработчик intern</item>
-        <item>Язык: Java \nОпыт: от 0 лет, наличие учебных проектов</item>
-        <item>Фронтенд разработчик</item>
-        <item>Язык: JavaScript \nОпыт: от 0 лет, наличие учебных проектов</item>
-        <item>Андроид разработчик</item>
-        <item>Язык: Java/Kotlin \nОпыт: от 0 лет, наличие учебных проектов</item>
-        <item>Auto tester</item>
-        <item>Язык: Java, JavaScript \nОпыт: от 2 лет</item>
-        <item>Auto tester intern</item>
-        <item>Язык: Java \nОпыт: без опыта, наличие учебных проектов</item>
-        <item>Auto tester intern</item>
-        <item>Язык: JavaScript \nОпыт: без опыта, наличие учебных проектов</item>
-        <item>Project manager</item>
-        <item>Опыт: от 2 лет</item>
+        <item>Джуниор Андроид разработчик</item>
+        <item>Язык: Java/Kotlin \nОпыт: от 3 года</item>
+        <item>Андроид разработчик стажер</item>
+        <item>Язык: Java/Kotlin \nОпыт: без опыта, Наличие учебных проектов</item>
+        <item>Мидл авто тестировщик</item>
+        <item>Язык: Java,JavaScript \nОпыт: от 3 лет</item>
+        <item>Джуниор авто тестировщик</item>
+        <item>Язык: Java,JavaScript \nОпыт: от 3 года</item>
+        <item>Авто тестировщик стажер</item>
+        <item>Язык: Java \nОпыт: без опыта, Наличие учебных проектов</item>
+        <item>Системный аналитик</item>
+        <item>Стэк: SQL и Oracle \nОпыт: от 3 лет</item>
+        <item>Мидл UI/UX Дизайнер</item>
+        <item>Стэк: Figma, Adobe PhotoShop, Marvel \nОпыт: от 3 лет</item>
+        <item>Джуниор UI/UX Дизайнер</item>
+        <item>Стэк: Figma, Adobe PhotoShop\nОпыт: от 3 года</item>
+        <item>Мидл ДэвОпс Engineer</item>
+        <item>Стэк: Linux, Docker, MongoDB, SQL \nОпыт: от 3 лет</item>
+        <item>ИТ-Рекрутер</item>
+        <item>Стэк: CRM, Excel, Word \nОпыт: от 3 лет</item>
     </array>
 
     <array name="offices_location_array">

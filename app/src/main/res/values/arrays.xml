@@ -1,26 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="vacancy_array">
-        <item>Backend developer</item>
-        <item>Lang: Java \nExp: from 5 years</item>
-        <item>Frontend developer</item>
+        <item>Senior Backend developer</item>
+        <item>Lang: Java, C++, SQL \nExp: from 5 years</item>
+        <item>Middle Backend developer</item>
+        <item>Lang: Java,SQL \nExp: from 3 years</item>
+        <item>Junior Backend developer</item>
+        <item>Lang: Java \nExp: from 1 years</item>
+        <item>Backend developer intern</item>
+        <item>Lang: Java \nExp: from 0 years, availability of educational projects</item>
+        <item>Senior Frontend developer</item>
+        <item>Lang: JavaScript \nExp: from 5 years</item>
+        <item>Middle Frontend developer</item>
         <item>Lang: JavaScript \nExp: from 3 years</item>
-        <item>Android developer</item>
+        <item>Junior Frontend developer</item>
+        <item>Lang: JavaScript \nExp: from 1 years</item>
+        <item>Frontend developer intern</item>
+        <item>Lang: JavaScript \nExp: from 0 years, availability of educational projects</item>
+        <item>Senior Android developer</item>
+        <item>Lang: Java/Kotlin \nExp: from 5 years</item>
+        <item>Middle Android developer</item>
         <item>Lang: Java/Kotlin \nExp: from 3 years</item>
-        <item>Java developer intern</item>
-        <item>Lang: Java \nExp: from 0 years, availability of educational projects</item>
-        <item>Frontend developer</item>
-        <item>Lang: JavaScript \nExp: from 0 years, availability of educational projects</item>
-        <item>Android developer</item>
+        <item>Junior Android developer</item>
+        <item>Lang: Java/Kotlin \nExp: from 1 years</item>
+        <item>Android developer intern</item>
         <item>Lang: Java/Kotlin \nExp: from 0 years, availability of educational projects</item>
-        <item>Auto tester</item>
-        <item>Lang: Java,JavaScript \nExp: from 2 years</item>
+        <item>Middle Auto tester</item>
+        <item>Lang: Java,JavaScript \nExp: from 3 years</item>
+        <item>Junior Auto tester</item>
+        <item>Lang: Java,JavaScript \nExp: from 1 years</item>
         <item>Auto tester intern</item>
         <item>Lang: Java \nExp: from 0 years, availability of educational projects</item>
-        <item>Auto tester intern</item>
-        <item>Lang: JavaScript \nExp: from 0 years, availability of educational projects</item>
-        <item>Project manager</item>
-        <item>Exp: from 2 years</item>
+        <item>System Analyst</item>
+        <item>DB: SQL и Oracle \nExp: from 3 years</item>
+        <item>Middle UI/UX Designer</item>
+        <item>Stack: Figma, Adobe PhotoShop, Marvel \nExp: from 3 years</item>
+        <item>Junior UI/UX Designer</item>
+        <item>Stack: Figma, Adobe PhotoShop\nExp: from 1 years</item>
+        <item>Middle DevOps Engineer</item>
+        <item>Stack: Linux, Docker, MongoDB, SQL \nExp: from 3 years</item>
+        <item>IT-Recruiter</item>
+        <item>Stack: CRM, Excel, Word \nExp: from 3 years</item>
     </array>
 
     <array name="offices_location_array">

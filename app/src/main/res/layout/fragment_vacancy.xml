@@ -1,137 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.pages.VacancyFragment"
+    tools:context=".ui.main.vacancy.VacancyFragment"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/vacancy_first"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_vacancy_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/iv_aston_icon"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/ic_aston"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_vacancy_header"
-                style="@style/AstonVacancyPrimaryTextStile"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/backend_developer"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_aston_icon"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_vacancy_content"
-                style="@style/AstonVacancySecondaryTextStile"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/backend_developer_description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_aston_icon"
-                app:layout_constraintTop_toBottomOf="@+id/tv_vacancy_header" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/vacancy_second"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vacancy_card_margin_top">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/iv_aston_icon2"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/ic_aston"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_vacancy_header2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                style="@style/AstonVacancyPrimaryTextStile"
-                android:text="@string/frontend_developer"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_aston_icon2"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_vacancy_content2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                style="@style/AstonVacancySecondaryTextStile"
-                android:text="@string/frontend_developer_description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_aston_icon2"
-                app:layout_constraintTop_toBottomOf="@+id/tv_vacancy_header2" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/vacancy_thread"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vacancy_card_margin_top">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/iv_aston_icon3"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/ic_aston"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_vacancy_header3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                style="@style/AstonVacancyPrimaryTextStile"
-                android:text="@string/android_developer"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_aston_icon3"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_vacancy_content3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                style="@style/AstonVacancySecondaryTextStile"
-                android:text="@string/android_developer_description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_aston_icon3"
-                app:layout_constraintTop_toBottomOf="@+id/tv_vacancy_header3" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@ import java.util.*
 /**
  * Фрагмент отображения головной информации о компании Aston
  */
-class AstonMainFragment() : BaseFragment() {
+class AstonMainFragment : BaseFragment() {
 
     companion object {
         val instance = AstonMainFragment()
@@ -22,7 +22,6 @@ class AstonMainFragment() : BaseFragment() {
 
     override val binding: FragmentAstonMainBinding
         get() = _binding!! as FragmentAstonMainBinding
-
 
     private val location = Locale.getDefault()
 
@@ -57,5 +56,10 @@ class AstonMainFragment() : BaseFragment() {
             e.printStackTrace()
             binding.ivAstonWelcome.loadImageFromUrl(R.drawable.pic_aston_welcome)
         }
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }

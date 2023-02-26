@@ -1,4 +1,4 @@
-package com.molchanov.molchanov_lesson_2.ui.main.pages
+package com.molchanov.molchanov_lesson_2.ui.main.offices
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -42,5 +42,10 @@ class OfficesSubFragment : BaseFragment() {
         } catch (e: java.lang.IndexOutOfBoundsException) {
             e.printStackTrace()
         }
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }

@@ -49,14 +49,18 @@ class Router(private val fragmentManager: FragmentManager) : IRouter {
 
         val oldFragment = fragmentManager.findFragmentByTag(tag)
 
-        if (oldFragment == null) {
-            fragmentManager.beginTransaction()
-                .replace(fragmentRepId, fragment::class.java, message, tag)
-                .commit()
-        } else {
-            fragmentManager.beginTransaction()
-                .replace(fragmentRepId, oldFragment::class.java, message, tag)
-                .commit()
+        try {
+            if (oldFragment == null) {
+                fragmentManager.beginTransaction()
+                    .add(fragmentRepId, fragment::class.java, message, tag)
+                    .commit()
+            } else {
+                fragmentManager.beginTransaction()
+                    .replace(fragmentRepId, oldFragment::class.java, message, tag)
+                    .commit()
+            }
+        } catch (e: IllegalStateException) {
+            e.printStackTrace()
         }
     }
 }
