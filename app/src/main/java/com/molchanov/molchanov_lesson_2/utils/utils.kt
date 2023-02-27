@@ -31,29 +31,22 @@ fun findWordInText(text: String, find: String): Boolean {
  * @param spanFlag - флаг библиотеки Span (например Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
  * вовращает SpannableString
  */
-fun setSpanColorByWord(text: String, searchWords:List<String>, color: Int, spanFlag:Int): SpannableString =
-    SpannableString(text).apply {
-        searchWords.forEach { word ->
-            text.indexesOf(word,true).forEach {
-                this.setSpan(
-                    ForegroundColorSpan(
-                        color),
-                    it,it + word.length,
-                    spanFlag
-                )
-            }
-        }
-    }
 
-fun setSpanColorByWord(text: SpannableString, searchWords:List<String>, color: Int, spanFlag:Int): SpannableString {
+fun setSpanColorByWord(
+    text: SpannableString,
+    searchWords: List<String>,
+    color: Int,
+    spanFlag: Int
+): SpannableString {
 
     text.toString().apply {
         searchWords.forEach { word ->
-            this.indexesOf(word,true).forEach {
+            this.indexesOf(word, true).forEach {
                 text.setSpan(
                     ForegroundColorSpan(
-                        color),
-                    it,it + word.length,
+                        color
+                    ),
+                    it, it + word.length,
                     spanFlag
                 )
             }

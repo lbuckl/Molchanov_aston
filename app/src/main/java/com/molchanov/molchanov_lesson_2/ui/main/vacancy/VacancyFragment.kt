@@ -1,9 +1,6 @@
 package com.molchanov.molchanov_lesson_2.ui.main.vacancy
 
-import android.graphics.Color
 import android.os.Bundle
-import android.text.Spannable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +9,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.molchanov.molchanov_lesson_2.databinding.FragmentVacancyBinding
 import com.molchanov.molchanov_lesson_2.domain.VacancyInfo
 import com.molchanov.molchanov_lesson_2.model.Repository
-import com.molchanov.molchanov_lesson_2.setSpanColorByWord
 import com.molchanov.molchanov_lesson_2.ui.base.AstonViewModelFactory
 import com.molchanov.molchanov_lesson_2.ui.base.BaseFragment
 
@@ -26,7 +22,7 @@ class VacancyFragment : BaseFragment() {
         const val FRAGMENT_TAG = "VacancyFragment"
     }
 
-    lateinit var viewModel: VacancyViewModel
+    private lateinit var viewModel: VacancyViewModel
 
     private val rvAdapter = VacancyRVAdapter()
 
@@ -72,9 +68,11 @@ class VacancyFragment : BaseFragment() {
         }
     }
 
-    private fun initSearchInputLayout(){
+    private fun initSearchInputLayout() {
         binding.tilVacancySearch.setEndIconOnClickListener {
+
             binding.etSearchText.text.toString().let { txt ->
+
                 viewModel.getFilteredData(
                     txt
                 )

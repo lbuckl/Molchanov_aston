@@ -20,7 +20,7 @@ class OfficesRVAdapter(
     private val callback: OnListItemClickListener
 ) : RecyclerView.Adapter<BaseViewHolder>() {
 
-    companion object{
+    companion object {
         private const val TYPE_DEFAULT = 0
         private const val TYPE_RUSSIAN = 1
         private const val TYPE_BELARUS = 2
@@ -33,21 +33,25 @@ class OfficesRVAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        when(viewType){
+        when (viewType) {
             TYPE_DEFAULT -> {
-                val binding = FragmentOfficeRvItemBinding.inflate(LayoutInflater.from(parent.context))
+                val binding =
+                    FragmentOfficeRvItemBinding.inflate(LayoutInflater.from(parent.context))
                 return DefaultViewHolder(binding.root)
             }
             TYPE_RUSSIAN -> {
-                val binding = FragmentOfficeRvItemRuBinding.inflate(LayoutInflater.from(parent.context))
+                val binding =
+                    FragmentOfficeRvItemRuBinding.inflate(LayoutInflater.from(parent.context))
                 return RuViewHolder(binding.root)
             }
             TYPE_BELARUS -> {
-                val binding = FragmentOfficeRvItemByBinding.inflate(LayoutInflater.from(parent.context))
+                val binding =
+                    FragmentOfficeRvItemByBinding.inflate(LayoutInflater.from(parent.context))
                 return ByViewHolder(binding.root)
             }
             else -> {
-                val binding = FragmentOfficeRvItemBinding.inflate(LayoutInflater.from(parent.context))
+                val binding =
+                    FragmentOfficeRvItemBinding.inflate(LayoutInflater.from(parent.context))
                 return DefaultViewHolder(binding.root)
             }
         }
@@ -74,11 +78,11 @@ class OfficesRVAdapter(
         fun onItemClick(data: OfficesInfo)
     }
 
-    private fun setTypeFromOfficeName(text: String): Int{
-        if (findWordInText(text,"Россия") || findWordInText(text,"Russia"))
+    private fun setTypeFromOfficeName(text: String): Int {
+        if (findWordInText(text, "Россия") || findWordInText(text, "Russia"))
             return TYPE_RUSSIAN
 
-        if (findWordInText(text,"Беларусь") || findWordInText(text,"Belarus"))
+        if (findWordInText(text, "Беларусь") || findWordInText(text, "Belarus"))
             return TYPE_BELARUS
 
         return TYPE_DEFAULT

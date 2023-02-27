@@ -1,7 +1,6 @@
 package com.molchanov.molchanov_lesson_2.ui.splash
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
@@ -10,7 +9,6 @@ import android.view.View
 import com.molchanov.molchanov_lesson_2.R
 import com.molchanov.molchanov_lesson_2.databinding.ActivitySplashBinding
 import com.molchanov.molchanov_lesson_2.ui.base.BaseActivity
-import com.molchanov.molchanov_lesson_2.ui.main.MainActivity
 import com.molchanov.molchanov_lesson_2.ui.navigation.Router
 import kotlinx.coroutines.*
 

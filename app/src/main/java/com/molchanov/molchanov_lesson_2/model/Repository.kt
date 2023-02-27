@@ -2,8 +2,6 @@ package com.molchanov.molchanov_lesson_2.model
 
 import android.content.res.Resources
 import android.text.SpannableString
-import android.util.Log
-import androidx.core.text.toSpannable
 import com.molchanov.molchanov_lesson_2.R
 import com.molchanov.molchanov_lesson_2.domain.AstonInfo
 import com.molchanov.molchanov_lesson_2.domain.OfficesInfo
@@ -31,7 +29,7 @@ class Repository(private val resources: Resources) : IRepository {
         for (i in buf.indices step 2) {
             result.add(
                 VacancyInfo(
-                    i/2,
+                    i / 2,
                     SpannableString(buf[i]),
                     SpannableString(buf[i + 1])
                 )

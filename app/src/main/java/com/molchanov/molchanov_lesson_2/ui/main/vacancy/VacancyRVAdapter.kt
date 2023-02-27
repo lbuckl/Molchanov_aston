@@ -1,6 +1,5 @@
 package com.molchanov.molchanov_lesson_2.ui.main.vacancy
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +17,7 @@ class VacancyRVAdapter : RecyclerView.Adapter<VacancyRVAdapter.ViewHolder>() {
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(data: VacancyInfo) {
             val binding = FragmentVacancyRvItemBinding.bind(itemView)
+
             binding.tvVacancyHeader.text = data.title
             binding.tvVacancyContent.text = data.description
         }
@@ -25,6 +25,7 @@ class VacancyRVAdapter : RecyclerView.Adapter<VacancyRVAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = FragmentVacancyRvItemBinding.inflate(LayoutInflater.from(parent.context))
+
         return ViewHolder(binding.root)
     }
 
@@ -36,7 +37,8 @@ class VacancyRVAdapter : RecyclerView.Adapter<VacancyRVAdapter.ViewHolder>() {
         return differ.currentList.size
     }
 
-    private val diffCallBack = object : DiffUtil.ItemCallback<VacancyInfo>(){
+
+    private val diffCallBack = object : DiffUtil.ItemCallback<VacancyInfo>() {
         override fun areItemsTheSame(oldItem: VacancyInfo, newItem: VacancyInfo): Boolean {
             return oldItem.id == newItem.id
         }
@@ -46,5 +48,5 @@ class VacancyRVAdapter : RecyclerView.Adapter<VacancyRVAdapter.ViewHolder>() {
         }
     }
 
-    val differ = AsyncListDiffer(this,diffCallBack)
+    val differ = AsyncListDiffer(this, diffCallBack)
 }
