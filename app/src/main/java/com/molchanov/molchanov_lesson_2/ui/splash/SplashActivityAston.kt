@@ -35,11 +35,7 @@ class SplashActivityAston : BaseActivity<ActivitySplashBinding>() {
     override fun getViewBinding() = ActivitySplashBinding.inflate(layoutInflater)
 
     override fun addMainFragment() {
-        //showSplash()
-
-        startActivity(Intent(this, MainActivity::class.java))
-
-        finish()
+        showSplash()
 
         router = Router(supportFragmentManager)
     }

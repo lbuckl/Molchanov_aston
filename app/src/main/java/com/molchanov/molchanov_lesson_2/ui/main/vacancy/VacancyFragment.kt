@@ -1,6 +1,9 @@
 package com.molchanov.molchanov_lesson_2.ui.main.vacancy
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.molchanov.molchanov_lesson_2.databinding.FragmentVacancyBinding
 import com.molchanov.molchanov_lesson_2.domain.VacancyInfo
 import com.molchanov.molchanov_lesson_2.model.Repository
+import com.molchanov.molchanov_lesson_2.setSpanColorByWord
 import com.molchanov.molchanov_lesson_2.ui.base.AstonViewModelFactory
 import com.molchanov.molchanov_lesson_2.ui.base.BaseFragment
 
@@ -22,7 +26,7 @@ class VacancyFragment : BaseFragment() {
         const val FRAGMENT_TAG = "VacancyFragment"
     }
 
-    private var viewModel: VacancyViewModel? = null
+    lateinit var viewModel: VacancyViewModel
 
     private val rvAdapter = VacancyRVAdapter()
 
@@ -40,6 +44,8 @@ class VacancyFragment : BaseFragment() {
 
         binding.rvVacancyList.adapter = rvAdapter
 
+        initSearchInputLayout()
+
         return binding.root
     }
 
@@ -50,7 +56,7 @@ class VacancyFragment : BaseFragment() {
 
         viewModel = ViewModelProvider(this, vmFactory)[VacancyViewModel::class.java]
 
-        viewModel?.getMyLiveData()!!.observe(viewLifecycleOwner) { state ->
+        viewModel.getMyLiveData().observe(viewLifecycleOwner) { state ->
             renderData(state)
         }
     }
@@ -58,7 +64,7 @@ class VacancyFragment : BaseFragment() {
     private fun renderData(state: VacancyAppState) {
         when (state) {
             is VacancyAppState.Success<*> -> {
-                rvAdapter.replaceData(state.data as List<VacancyInfo>)
+                rvAdapter.differ.submitList(state.data as List<VacancyInfo>)
             }
             is VacancyAppState.Error -> {
                 Snackbar.make(binding.root, state.errorMsg, Snackbar.LENGTH_SHORT).show()
@@ -66,9 +72,18 @@ class VacancyFragment : BaseFragment() {
         }
     }
 
+    private fun initSearchInputLayout(){
+        binding.tilVacancySearch.setEndIconOnClickListener {
+            binding.etSearchText.text.toString().let { txt ->
+                viewModel.getFilteredData(
+                    txt
+                )
+            }
+        }
+    }
+
     override fun onDestroy() {
         _binding = null
-        viewModel = null
         super.onDestroy()
     }
 }

@@ -1,8 +1,11 @@
 package com.molchanov.molchanov_lesson_2.ui.main.vacancy
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.molchanov.molchanov_lesson_2.databinding.FragmentVacancyRvItemBinding
 import com.molchanov.molchanov_lesson_2.domain.VacancyInfo
@@ -11,8 +14,6 @@ import com.molchanov.molchanov_lesson_2.domain.VacancyInfo
  * Адаптер списка вакансий компании ASTON
  */
 class VacancyRVAdapter : RecyclerView.Adapter<VacancyRVAdapter.ViewHolder>() {
-
-    private var vacancyList: List<VacancyInfo> = listOf()
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(data: VacancyInfo) {
@@ -28,15 +29,22 @@ class VacancyRVAdapter : RecyclerView.Adapter<VacancyRVAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(vacancyList[position])
+        holder.bind(differ.currentList[position])
     }
 
     override fun getItemCount(): Int {
-        return vacancyList.size
+        return differ.currentList.size
     }
 
-    fun replaceData(newOfficeList: List<VacancyInfo>) {
-        vacancyList = newOfficeList
-        notifyDataSetChanged()
+    private val diffCallBack = object : DiffUtil.ItemCallback<VacancyInfo>(){
+        override fun areItemsTheSame(oldItem: VacancyInfo, newItem: VacancyInfo): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: VacancyInfo, newItem: VacancyInfo): Boolean {
+            return oldItem == newItem
+        }
     }
+
+    val differ = AsyncListDiffer(this,diffCallBack)
 }

@@ -1,16 +1,13 @@
 package com.molchanov.molchanov_lesson_2.ui.main.offices
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.molchanov.molchanov_lesson_2.R
 import com.molchanov.molchanov_lesson_2.databinding.FragmentOfficeRvItemBinding
 import com.molchanov.molchanov_lesson_2.databinding.FragmentOfficeRvItemByBinding
 import com.molchanov.molchanov_lesson_2.databinding.FragmentOfficeRvItemRuBinding
 import com.molchanov.molchanov_lesson_2.domain.OfficesInfo
-import com.molchanov.molchanov_lesson_2.findWordInTextCount
-import com.molchanov.molchanov_lesson_2.loadImageFromUrl
+import com.molchanov.molchanov_lesson_2.findWordInText
 import com.molchanov.molchanov_lesson_2.ui.base.BaseViewHolder
 import com.molchanov.molchanov_lesson_2.ui.base.ByViewHolder
 import com.molchanov.molchanov_lesson_2.ui.base.DefaultViewHolder
@@ -78,10 +75,10 @@ class OfficesRVAdapter(
     }
 
     private fun setTypeFromOfficeName(text: String): Int{
-        if (findWordInTextCount(text,"Россия") || findWordInTextCount(text,"Russia"))
+        if (findWordInText(text,"Россия") || findWordInText(text,"Russia"))
             return TYPE_RUSSIAN
 
-        if (findWordInTextCount(text,"Беларусь") || findWordInTextCount(text,"Belarus"))
+        if (findWordInText(text,"Беларусь") || findWordInText(text,"Belarus"))
             return TYPE_BELARUS
 
         return TYPE_DEFAULT
