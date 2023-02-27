@@ -13,6 +13,7 @@ import com.molchanov.molchanov_lesson_2.findWordInTextCount
 import com.molchanov.molchanov_lesson_2.loadImageFromUrl
 import com.molchanov.molchanov_lesson_2.ui.base.BaseViewHolder
 import com.molchanov.molchanov_lesson_2.ui.base.ByViewHolder
+import com.molchanov.molchanov_lesson_2.ui.base.DefaultViewHolder
 import com.molchanov.molchanov_lesson_2.ui.base.RuViewHolder
 
 /**
@@ -38,7 +39,7 @@ class OfficesRVAdapter(
         when(viewType){
             TYPE_DEFAULT -> {
                 val binding = FragmentOfficeRvItemBinding.inflate(LayoutInflater.from(parent.context))
-                return ViewHolder(binding.root)
+                return DefaultViewHolder(binding.root)
             }
             TYPE_RUSSIAN -> {
                 val binding = FragmentOfficeRvItemRuBinding.inflate(LayoutInflater.from(parent.context))
@@ -50,7 +51,7 @@ class OfficesRVAdapter(
             }
             else -> {
                 val binding = FragmentOfficeRvItemBinding.inflate(LayoutInflater.from(parent.context))
-                return ViewHolder(binding.root)
+                return DefaultViewHolder(binding.root)
             }
         }
     }
@@ -62,14 +63,6 @@ class OfficesRVAdapter(
             callback.onItemClick(officeList[position])
         }
     }
-
-    inner class ViewHolder(view: View) : BaseViewHolder(view) {
-        override fun bind(data: OfficesInfo) {
-            val binding = FragmentOfficeRvItemBinding.bind(itemView)
-            binding.tvHeader.text = data.location
-        }
-    }
-
 
     override fun getItemCount(): Int {
         return officeList.size
