@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="vacancy_array">
+        <item>Senior Backend developer</item>
+        <item>Lang: Java, C++, SQL \nExp: from 5 years</item>
+        <item>Middle Backend developer</item>
+        <item>Lang: Java,SQL \nExp: from 3 years</item>
+        <item>Junior Backend developer</item>
+        <item>Lang: Java \nExp: from 1 years</item>
+        <item>Backend developer intern</item>
+        <item>Lang: Java \nExp: from 0 years, availability of educational projects</item>
+        <item>Senior Frontend developer</item>
+        <item>Lang: JavaScript \nExp: from 5 years</item>
+        <item>Middle Frontend developer</item>
+        <item>Lang: JavaScript \nExp: from 3 years</item>
+        <item>Junior Frontend developer</item>
+        <item>Lang: JavaScript \nExp: from 1 years</item>
+        <item>Frontend developer intern</item>
+        <item>Lang: JavaScript \nExp: from 0 years, availability of educational projects</item>
+        <item>Senior Android developer</item>
+        <item>Lang: Java/Kotlin \nExp: from 5 years</item>
+        <item>Middle Android developer</item>
+        <item>Lang: Java/Kotlin \nExp: from 3 years</item>
+        <item>Junior Android developer</item>
+        <item>Lang: Java/Kotlin \nExp: from 1 years</item>
+        <item>Android developer intern</item>
+        <item>Lang: Java/Kotlin \nExp: from 0 years, availability of educational projects</item>
+        <item>Middle Auto tester</item>
+        <item>Lang: Java,JavaScript \nExp: from 3 years</item>
+        <item>Junior Auto tester</item>
+        <item>Lang: Java,JavaScript \nExp: from 1 years</item>
+        <item>Auto tester intern</item>
+        <item>Lang: Java \nExp: from 0 years, availability of educational projects</item>
+        <item>System Analyst</item>
+        <item>DB: SQL и Oracle \nExp: from 3 years</item>
+        <item>Middle UI/UX Designer</item>
+        <item>Stack: Figma, Adobe PhotoShop, Marvel \nExp: from 3 years</item>
+        <item>Junior UI/UX Designer</item>
+        <item>Stack: Figma, Adobe PhotoShop\nExp: from 1 years</item>
+        <item>Middle DevOps Engineer</item>
+        <item>Stack: Linux, Docker, MongoDB, SQL \nExp: from 3 years</item>
+        <item>IT-Recruiter</item>
+        <item>Stack: CRM, Excel, Word \nExp: from 3 years</item>
+    </array>
+
+    <array name="offices_location_array">
+        <item>Moscow, Russia</item>
+        <item>Perenesenskaya naberejnaya 6/2 \n BC "Imperial Tower", gate 3, floor 53, office 13"</item>
+        <item>Kazan, Russia</item>
+        <item>N.Ershov st. 76/1 office 213"</item>
+        <item>Rostov-on_Don, Russia</item>
+        <item>Tekucheva st. 246 floor 3"</item>
+        <item>Saint Petersburg, Russia</item>
+        <item>Pr. Vladimirsky 23 \n BC "Renaissance hall, floor 8 , office 801"</item>
+        <item>Almati, Kazahstan</item>
+        <item>Pr. Bostandiksky, Koktem-2 distr., Build 22"</item>
+        <item>Minsk, Belarus</item>
+        <item>Pr. Pobediteley 7A"</item>
+        <item>Gomel, Belarus</item>
+        <item>Sovetskaya st. 41B"</item>
+    </array>
+</resources>

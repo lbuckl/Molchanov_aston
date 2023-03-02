@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="vacancy_array">
+        <item>Сеньор бэкэнд разработчик</item>
+        <item>Язык: Java, C++, SQL \nОпыт: от 5 лет</item>
+        <item>Мидл бэкэнд разработчик</item>
+        <item>Язык: Java,SQL \nОпыт: от 3 года</item>
+        <item>Джуниор бэкэнд разработчик</item>
+        <item>Язык: Java \nОпыт: от 1 года</item>
+        <item>Бэкэнд разработчик стажер</item>
+        <item>Язык: Java \nОпыт: без опыта, Наличие учебных проектов</item>
+        <item>Сеньор фронтенд разработчик</item>
+        <item>Язык: JavaScript \nОпыт: от 5 лет</item>
+        <item>Мидл фронтенд разработчик</item>
+        <item>Язык: JavaScript \nОпыт: от 3 года</item>
+        <item>Джуниор фронтенд разработчик</item>
+        <item>Язык: JavaScript \nОпыт: от 1 года</item>
+        <item>Фронтенд разработчик стажер</item>
+        <item>Язык: JavaScript \nОпыт: без опыта, Наличие учебных проектов</item>
+        <item>Сеньор андроид разработчик</item>
+        <item>Язык: Java/Kotlin \nОпыт: от 5 лет</item>
+        <item>Мидл андроид разработчик</item>
+        <item>Язык: Java/Kotlin \nОпыт: от 3 года</item>
+        <item>Джуниор андроид разработчик</item>
+        <item>Язык: Java/Kotlin \nОпыт: от 1 года</item>
+        <item>Андроид разработчик стажер</item>
+        <item>Язык: Java/Kotlin \nОпыт: без опыта, Наличие учебных проектов</item>
+        <item>Мидл авто тестировщик</item>
+        <item>Язык: Java,JavaScript \nОпыт: от 3 года</item>
+        <item>Джуниор авто тестировщик</item>
+        <item>Язык: Java,JavaScript \nОпыт: от 1 года</item>
+        <item>Авто тестировщик стажер</item>
+        <item>Язык: Java \nОпыт: без опыта, Наличие учебных проектов</item>
+        <item>Системный аналитик</item>
+        <item>Стэк: SQL и Oracle \nОпыт: от 3 года</item>
+        <item>Мидл UI/UX дизайнер</item>
+        <item>Стэк: Figma, Adobe PhotoShop, Marvel \nОпыт: от 3 года</item>
+        <item>Джуниор UI/UX дизайнер</item>
+        <item>Стэк: Figma, Adobe PhotoShop\nОпыт: от 1 года</item>
+        <item>Мидл ДэвОпс инженер</item>
+        <item>Стэк: Linux, Docker, MongoDB, SQL \nОпыт: от 3 года</item>
+        <item>ИТ-рекрутер</item>
+        <item>Стэк: CRM, Excel, Word \nОпыт: от 3 года</item>
+    </array>
+
+    <array name="offices_location_array">
+        <item>Москва, Россия</item>
+        <item>Перенесенская набережная 6/2 \n БЦ "Башня Империя", подъезд 3, этаж 53, оффис 13"</item>
+        <item>Казань, Россия</item>
+        <item>Улица Н. Ершова 76/1 оффис 213"</item>
+        <item>Ростов-на-Дону, Россия</item>
+        <item>ул.Текучева 246 этаж 3"</item>
+        <item>Санкт-Петербург, Россия</item>
+        <item>Владимирский проспект 23 \n BC "Ренесанс холл, этаж 8 , оффис 801"</item>
+        <item>Алматы, Казахстан</item>
+        <item>Бостандыкский район, микрорайон Коктем-2, здание 22</item>
+        <item>Минск, Беларусь</item>
+        <item>Проспект победителей 7А"</item>
+        <item>Гомель, Беларусь</item>
+        <item>Ул. Советская 41Б"</item>
+    </array>
+</resources>

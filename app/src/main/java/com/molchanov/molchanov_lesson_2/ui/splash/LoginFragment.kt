@@ -28,7 +28,7 @@ class LoginFragment : BaseFragment() {
     private val pass = "123qwe"
 
     override val binding: FragmentLoginBinding
-    get() = _binding as FragmentLoginBinding
+        get() = _binding as FragmentLoginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,21 +47,21 @@ class LoginFragment : BaseFragment() {
     /**
      * Работа кнопки Войти во фрагменте
      */
-    private fun initButtonEnter(){
-        with(binding){
+    private fun initButtonEnter() {
+        with(binding) {
 
-            btnEnter.setOnClickListener { btn->
-                if (etLogin.text.toString() == login && etPassword.text.toString() == pass){
+            btnEnter.setOnClickListener { btn ->
+                if (etLogin.text.toString() == login && etPassword.text.toString() == pass) {
 
                     startActivity(Intent(requireContext(), MainActivity::class.java))
 
                     requireActivity().finish()
-                }
-                else{
+                } else {
                     Snackbar.make(
                         binding.btnEnter,
                         requireContext().getText(R.string.wrong_pass),
-                        Snackbar.LENGTH_SHORT)
+                        Snackbar.LENGTH_SHORT
+                    )
                         .setAnchorView(binding.btnEnter)
                         .show()
                 }
@@ -75,20 +75,19 @@ class LoginFragment : BaseFragment() {
      * Функция мутит и отображает кнопку
      * если количество символов меньше 5 или больше 20
      */
-    private fun initPasswordChecker(){
-        with(binding){
+    private fun initPasswordChecker() {
+        with(binding) {
             tilPassword.counterTextColor = ColorStateList.valueOf(Color.RED)
             tilPassword.setHelperTextColor(ColorStateList.valueOf(Color.RED))
 
             etPassword.addTextChangedListener {
                 it?.let { text ->
-                    if (text.length in 5..20){
+                    if (text.length in 5..20) {
                         btnEnter.alpha = 1.0F
                         btnEnter.isClickable = true
                         tilPassword.counterTextColor = ColorStateList.valueOf(Color.BLACK)
                         tilPassword.setHelperTextColor(ColorStateList.valueOf(Color.BLACK))
-                    }
-                    else {
+                    } else {
                         btnEnter.alpha = 0.5F
                         btnEnter.isClickable = false
                         tilPassword.counterTextColor = ColorStateList.valueOf(Color.RED)

@@ -47,7 +47,6 @@
     <string name="android_developer">Android developer</string>
     <string name="android_developer_description">Lang: Java/Kotlin \nExp: from 3 years</string>
 
-
     <!-- Content description -->
     <string name="iv_welcome" translatable="false">iv_welcome</string>
     <string name="aston_icon" translatable="false">aston_icon</string>
